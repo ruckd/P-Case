@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p_case;
 
 import javax.swing.JOptionPane;
@@ -140,23 +135,10 @@ public class Edit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
-        JOptionPane.showMessageDialog(null, 
-            " P-Case - FAQ - Frequently Asked Questions\n" +
-                    "\n" +
-                    "-> Wie kann ich mich anmelden?\n" +
-                    "	+ Als neuer Benutzer muessen sie sich vor Verwendung Registrieren.\n" +
-                    "	+ Wenn sie sich bereits registriert haben, loggen sie sich mittels \n "+
-                    "     ihres Benutzernamen und Passwort ein.\n" +
-                    "-> Mein Benutzername/Passwort wird nicht erkannt ?\n" +
-                    "	+ Prüfen sie ob die Feststell-Taste aktiviert ist.\n" +
-                    "	+ Sind sie sicher dass Sie alles richtig geschrieben haben? \n" +
-                    "		Ja: Bitte kontaktieren sie den Administrator.\n" +
-                    "\n" +
-                    "-> Wie lege ich einen neuen Eintrag in meiner Datenbank an ?\n" +
-                    "\n" +
-                    "-> Wie kann ich meine Einträge ändern ?\n" +
-                    "\n" +
-                    "-> Wie kann ich einen Eintrag loeschen ?\n" +"\n");
+        TXTReader reader = new TXTReader();
+
+        JOptionPane.showMessageDialog(null, reader.getFAQs());
+
     }//GEN-LAST:event_jButtonHelpMouseClicked
 
     /**

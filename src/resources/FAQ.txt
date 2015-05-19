@@ -1,0 +1,19 @@
+P-Case - FAQ - Frequently Asked Questions
+
+-> Wie kann ich mich anmelden?
+	+ Als neuer Benutzer muessen sie sich vor Verwendung Registrieren.
+	
+        + Wenn sie sich bereits registriert haben, loggen sie sich mittels
+          ihres Benutzernamen und Passwort ein.
+
+-> Mein Benutzername/Passwort wird nicht erkannt ?
+	+ Prüfen sie ob die Feststell-Taste aktiviert ist.
+	
+        + Sind sie sicher dass Sie alles richtig geschrieben haben? 
+		Ja: Bitte kontaktieren sie den Administrator.
+
+-> Wie lege ich einen neuen Eintrag in meiner Datenbank an ?
+
+-> Wie kann ich meine Eintraege aendern ?
+
+-> Wie kann ich einen Eintrag loeschen ?
