@@ -10,6 +10,7 @@ public abstract class User {
     private String userPasswd;
     private final int iD;
     private static int nextID = 1;
+    protected boolean adm;
 
     public User(int iD, String userName, String userPasswd) {
         this.iD = nextID++;
@@ -35,6 +36,10 @@ public abstract class User {
 
     public void setUserPasswd(String userPasswd) {
         this.userPasswd = userPasswd;
+    }
+
+    public boolean getAdmState() {
+        return this.adm;
     }
 
 }
