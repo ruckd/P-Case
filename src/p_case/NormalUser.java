@@ -9,14 +9,12 @@ package p_case;
  *
  * @author ruckd
  */
-public class AdminUser extends User {
+public class NormalUser extends User {
 
-    public AdminUser(int iD, String userName, String userPasswd) {
-        //this.AdminUser = new User(){};
-
+    public NormalUser(int iD, String userName, String userPasswd) {
         super(iD, userName, userPasswd);
-        super.adm = true;
+        super.adm = false;
     }
 
-    //User adminUser = new AdminUser(1, "administrator", "1234", true);
+    // User normalUser = new NormalUser(1,Bob,marlboro,false);
 }
