@@ -1,4 +1,4 @@
-package p_case;
+package Methods;
 
 import java.io.*;
 
@@ -41,10 +41,10 @@ public class TXTReader {
         return faqs;
     }
 
-    public static void main(String[] args) {
-
-        TXTReader reader = new TXTReader();
-        System.out.println(reader.getFAQs());
-    }
+  //  public static void main(String[] args) {
+//
+  //      TXTReader reader = new TXTReader();
+    //    System.out.println(reader.getFAQs());
+   // }
 
 }

@@ -1,5 +1,6 @@
 package p_case;
 
+import Methods.TXTReader;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,12 +48,27 @@ public class Edit extends javax.swing.JFrame {
 
         jButtonDelete.setText("Löschen");
         jButtonDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonDeleteMouseClicked(evt);
+            }
+        });
 
         jButtonEdit.setText("Bearbeiten");
         jButtonEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEditMouseClicked(evt);
+            }
+        });
 
         jButtonCancel.setText("Abbrechen");
         jButtonCancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCancelMouseClicked(evt);
+            }
+        });
 
         jLabelTitle.setText("Titel");
 
@@ -73,12 +89,12 @@ public class Edit extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jTextFieldHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonHelp))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -136,10 +152,26 @@ public class Edit extends javax.swing.JFrame {
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
         TXTReader reader = new TXTReader();
-
         JOptionPane.showMessageDialog(null, reader.getFAQs());
-
+       
+        
     }//GEN-LAST:event_jButtonHelpMouseClicked
+
+    private void jButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButtonEditMouseClicked
+
+    private void jButtonCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButtonCancelMouseClicked
+
+    private void jButtonDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteMouseClicked
+        // TODO add your handling code here:
+       dispose();
+       
+    }//GEN-LAST:event_jButtonDeleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -171,6 +203,7 @@ public class Edit extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Edit().setVisible(true);
             }

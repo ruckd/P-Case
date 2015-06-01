@@ -39,11 +39,9 @@ public class AccesData {
         return user + password;
     }
 
-    public static void main(String[] args) {
-        AccesData data1 = new AccesData();
-        data1.setPassword("1234");
-        data1.setUser("admin");
-
-  
-    }
+   // public static void main(String[] args) {
+   //     AccesData data1 = new AccesData();
+   //     data1.setPassword("1234");
+   //     data1.setUser("admin");  
+    //}
 }

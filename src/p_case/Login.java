@@ -1,4 +1,5 @@
 package p_case;
+import Methods.TXTReader;
 import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -59,6 +60,16 @@ public class Login extends javax.swing.JFrame {
         jButtonRegister.setText("Registrieren");
 
         jButtonRegister1.setText("Login");
+        jButtonRegister1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRegister1MouseClicked(evt);
+            }
+        });
+        jButtonRegister1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegister1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,26 +126,17 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonFAQMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFAQMouseClicked
-       JOptionPane.showMessageDialog(
-       null, " P-Case - FAQ - Frequently Asked Questions\n" +
-"\n" +
-"-> Wie kann ich mich anmelden?\n" +
-"	+ Als neuer Benutzer muessen sie sich vor Verwendung Registrieren.\n" +
-"	+ Wenn sie sich bereits registriert haben, loggen sie sich mittels \n "+		  
-"       ihres Benutzernamen und Passwort ein.\n" +
-"-> Mein Benutzername/Passwort wird nicht erkannt ?\n" +
-"	+ Prüfen sie ob die Feststell-Taste aktiviert ist.\n" +
-"	+ Sind sie sicher dass Sie alles richtig geschrieben haben? \n" +
-"		Ja: Bitte kontaktieren sie den Administrator.\n" +
-"\n" +
-"-> Wie lege ich einen neuen Eintrag in meiner Datenbank an ?\n" +
-"\n" +
-"-> Wie kann ich meine Einträge ändern ?\n" +
-"\n" +
-"-> Wie kann ich einen Eintrag loeschen ?\n" +
-"\n" +
-"-> ");
+       TXTReader reader = new TXTReader();
+        JOptionPane.showMessageDialog(null, reader.getFAQs());
     }//GEN-LAST:event_jButtonFAQMouseClicked
+
+    private void jButtonRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegister1MouseClicked
+        new ListScreen().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonRegister1MouseClicked
+
+    private void jButtonRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegister1ActionPerformed
+    }//GEN-LAST:event_jButtonRegister1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +167,7 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Login().setVisible(true);
             }
