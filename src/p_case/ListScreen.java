@@ -49,6 +49,11 @@ public class ListScreen extends javax.swing.JFrame {
         });
 
         jButtonNewListing.setText("Neuer Eintrag");
+        jButtonNewListing.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonNewListingMouseClicked(evt);
+            }
+        });
 
         jButtonChange_Delete.setText("Bearbeiten / Löschen");
         jButtonChange_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,6 +127,10 @@ public class ListScreen extends javax.swing.JFrame {
     private void jButtonLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLogoutMouseClicked
         dispose();
     }//GEN-LAST:event_jButtonLogoutMouseClicked
+
+    private void jButtonNewListingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNewListingMouseClicked
+        new NewListing().setVisible(true);
+    }//GEN-LAST:event_jButtonNewListingMouseClicked
 
     /**
      * @param args the command line arguments
