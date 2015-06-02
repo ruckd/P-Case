@@ -61,6 +61,11 @@ public class Login extends javax.swing.JFrame{
         jTextLogo.setText("P-CASE");
 
         jButtonRegister.setText("Registrieren");
+        jButtonRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRegisterMouseClicked(evt);
+            }
+        });
 
         jButtonRegister1.setText("Login");
         jButtonRegister1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,6 +156,11 @@ public class Login extends javax.swing.JFrame{
         
         
     }//GEN-LAST:event_jButtonRegister1ActionPerformed
+
+    private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
+        Register registerScreen = new Register();
+        registerScreen.setVisible(true);     
+    }//GEN-LAST:event_jButtonRegisterMouseClicked
 
     /**
      * @param args the command line arguments

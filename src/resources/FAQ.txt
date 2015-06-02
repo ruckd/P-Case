@@ -14,6 +14,13 @@ P-Case - FAQ - Frequently Asked Questions
 
 -> Wie lege ich einen neuen Eintrag in meiner Datenbank an ?
 
+-> Wie muss mein Passwort aussehen?
+        +Passwörter müssen bestimmte Qualitätsmerkmale erfüllen. So sollte ein gutes Passwort mindestens:
+            − acht Zeichen,
+            − zwei Ziffern,
+            − einen Groß- und einen Kleinbuchstaben und
+            − mindestens ein Sonderzeichen enthalten. (Ein Sonderzeichen ist ein Zeichen, dass keine Ziffer und kein Unicode-Buchstabe ist.)
+
 -> Wie kann ich meine Eintraege aendern ?
 
 -> Wie kann ich einen Eintrag loeschen ?

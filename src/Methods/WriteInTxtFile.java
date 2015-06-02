@@ -10,12 +10,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Simon
  */
-public class WriteInTxtFile {
+public class WriteInTxtFile{
     
     int countUser=0;
     String path = System.getProperty("user.dir");
@@ -40,7 +41,7 @@ public class WriteInTxtFile {
                         s = "TEXT";
                         b.write(s);
                         b.newLine();
-                    }
+                    
                  */
                     //schließen
                     b.close();
@@ -61,10 +62,10 @@ public class WriteInTxtFile {
             }
         }    
     }   
-    public void schreibenAdminList() {
+    public void schreibenAdminList(javax.swing.JTextField jTextFieldUsername,javax.swing.JPasswordField jPasswordFieldPassword,javax.swing.JPasswordField jPasswordFieldPasswordCheck) {
         //neuen leeren writer erstellen
         Writer fw = null;
-        
+        InputChecker inputCheck = new InputChecker("a","b");
         try{
             
                 File file = new File(path + path2 + "adminList.txt");
@@ -75,14 +76,22 @@ public class WriteInTxtFile {
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
-                       
-                    /*
-                        String s;
-                        s = "TEXT";
-                        b.write(s);
-                        b.newLine();
+                      
+                   if(inputCheck.passwordChecker(jPasswordFieldPassword.getText())==true){
+                    
+                    if(!jPasswordFieldPassword.getText().equals(jPasswordFieldPasswordCheck.getText())){
+                            JOptionPane.showInputDialog("Die eingegebenen Passwörter stimmen nicht überein!");
+                        }else{
+                            String usernameString = jTextFieldUsername.getText();
+                            String pwString = jPasswordFieldPassword.getText();
+                            b.write(usernameString);
+                            b.newLine();
+                            b.write(pwString);
+                            b.newLine();
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Bitte benutzen Sie ein sicheres Passwort!");
                     }
-                 */
                     //schließen
                     b.close();
             //wenn datei nicht existiert wird sie hier erstellt

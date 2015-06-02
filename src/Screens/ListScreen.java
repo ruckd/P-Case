@@ -8,6 +8,7 @@ package Screens;
 import Methods.ReadTxtFile;
 import p_case.*;
 import Methods.TXTReader;
+import Methods.WriteInTxtFile;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -160,14 +161,16 @@ public class ListScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonTestActionPerformed
 
     private void jButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTestMouseClicked
+
+        
+        
         ReadTxtFile rtxtf = new ReadTxtFile();
         try {
-            rtxtf.FileReaderUser(jTextAreaTabelle);
+            rtxtf.FileReaderAdmin(jTextAreaTabelle);
         } catch (IOException ex) {
             Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+               
     }//GEN-LAST:event_jButtonTestMouseClicked
 
     /**

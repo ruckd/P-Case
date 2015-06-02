@@ -15,6 +15,6 @@ public class NormalUser extends User {
         super(iD, userName, userPasswd);
         super.adm = false;
     }
-
+    
     // User normalUser = new NormalUser(1,Bob,marlboro,false);
 }
