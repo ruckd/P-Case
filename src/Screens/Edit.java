@@ -1,5 +1,6 @@
-package p_case;
+package Screens;
 
+import p_case.*;
 import Methods.TXTReader;
 import javax.swing.JOptionPane;
 
@@ -233,6 +234,8 @@ public class Edit extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Edit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

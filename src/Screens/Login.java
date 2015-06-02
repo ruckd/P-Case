@@ -1,5 +1,8 @@
-package p_case;
+package Screens;
+import Methods.ReadTxtFile;
+import p_case.*;
 import Methods.TXTReader;
+import Methods.WriteInTxtFile;
 import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Robin
  */
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame{
 
     /**
      * Creates new form Login
@@ -132,16 +135,28 @@ public class Login extends javax.swing.JFrame {
 
     private void jButtonRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegister1MouseClicked
         new ListScreen().setVisible(true);
+        
+        //neue datei erstellen
+        WriteInTxtFile wtxtf = new WriteInTxtFile();
+        wtxtf.schreibenUserList();
+        
+        
         dispose();
     }//GEN-LAST:event_jButtonRegister1MouseClicked
 
     private void jButtonRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegister1ActionPerformed
+
+        
+        
+        
+        
     }//GEN-LAST:event_jButtonRegister1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -163,6 +178,7 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

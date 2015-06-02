@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package p_case;
+package Screens;
 
+import p_case.*;
 import Methods.TXTReader;
 import javax.swing.JOptionPane;
 
@@ -78,6 +79,16 @@ public class NewListing extends javax.swing.JFrame {
         });
 
         jButtonNew.setText("Hinzufügen");
+        jButtonNew.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonNewMouseClicked(evt);
+            }
+        });
+        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,6 +168,15 @@ public class NewListing extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonCancel2MouseClicked
 
+    private void jButtonNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNewMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNewMouseClicked
+
+    private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButtonNewActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -182,6 +202,7 @@ public class NewListing extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(NewListing.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

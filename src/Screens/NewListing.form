@@ -159,6 +159,10 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Hinzuf&#xfc;gen"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonNewMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

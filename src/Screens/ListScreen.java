@@ -3,9 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package p_case;
+package Screens;
 
+import Methods.ReadTxtFile;
+import p_case.*;
 import Methods.TXTReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,8 +39,10 @@ public class ListScreen extends javax.swing.JFrame {
         jButtonLogout = new javax.swing.JButton();
         jButtonNewListing = new javax.swing.JButton();
         jButtonChange_Delete = new javax.swing.JButton();
-        jTextFieldTabelle = new javax.swing.JTextField();
         jButtonHelp = new javax.swing.JButton();
+        jButtonTest = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaTabelle = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,14 +69,28 @@ public class ListScreen extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldTabelle.setText("tabelle");
-
         jButtonHelp.setText("?");
         jButtonHelp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonHelpMouseClicked(evt);
             }
         });
+
+        jButtonTest.setText("Test");
+        jButtonTest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonTestMouseClicked(evt);
+            }
+        });
+        jButtonTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTestActionPerformed(evt);
+            }
+        });
+
+        jTextAreaTabelle.setColumns(20);
+        jTextAreaTabelle.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaTabelle);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,15 +99,16 @@ public class ListScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonLogout)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonNewListing)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
+                        .addComponent(jButtonTest)
+                        .addGap(294, 294, 294)
                         .addComponent(jButtonChange_Delete))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTabelle, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonLogout))
-                        .addGap(0, 15, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelU_name, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -106,9 +128,10 @@ public class ListScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNewListing)
                     .addComponent(jButtonChange_Delete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldTabelle, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonTest))
         );
 
         pack();
@@ -132,10 +155,29 @@ public class ListScreen extends javax.swing.JFrame {
         new NewListing().setVisible(true);
     }//GEN-LAST:event_jButtonNewListingMouseClicked
 
+    private void jButtonTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTestActionPerformed
+
+    private void jButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTestMouseClicked
+        ReadTxtFile rtxtf = new ReadTxtFile();
+        try {
+            rtxtf.FileReaderUser(jTextAreaTabelle);
+        } catch (IOException ex) {
+            Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_jButtonTestMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        
+       
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -158,6 +200,7 @@ public class ListScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ListScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -173,7 +216,9 @@ public class ListScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButtonHelp;
     private javax.swing.JButton jButtonLogout;
     private javax.swing.JButton jButtonNewListing;
+    private javax.swing.JButton jButtonTest;
     private javax.swing.JLabel jLabelU_name;
-    private javax.swing.JTextField jTextFieldTabelle;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaTabelle;
     // End of variables declaration//GEN-END:variables
 }

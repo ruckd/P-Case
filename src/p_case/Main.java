@@ -5,13 +5,18 @@
  */
 package p_case;
 
+
+import Screens.Login;
+import java.io.IOException;
+
 /**
  *
  * @author Simon
  */
 public class Main {
     
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         new Login().setVisible(true);    
+        
     }   
 }
