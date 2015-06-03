@@ -1,8 +1,12 @@
 package Screens;
+import Methods.InputChecker;
 import Methods.ReadTxtFile;
 import p_case.*;
 import Methods.TXTReader;
 import Methods.WriteInTxtFile;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -140,8 +144,17 @@ public class Login extends javax.swing.JFrame{
 
     private void jButtonRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegister1MouseClicked
         new ListScreen().setVisible(true);
+        /*
+        //schauen ob username und passwort zusammenpasst
+        InputChecker inputcheckerLogin = new InputChecker();
+        try {
+            inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jTextPasswort.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
         
         //neue datei erstellen
+        //to do !!!!auf user zuweisen!!!
         WriteInTxtFile wtxtf = new WriteInTxtFile();
         wtxtf.schreibenUserList();
         

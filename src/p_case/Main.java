@@ -12,6 +12,10 @@ import java.io.IOException;
 /**
  *
  * @author Simon
+ * gutes pw:   AbC1&z8c
+ *          
+ *   
+ *
  */
 public class Main {
     

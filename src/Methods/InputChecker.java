@@ -5,6 +5,12 @@
  */
 package Methods;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Simon
@@ -12,7 +18,6 @@ package Methods;
 public class InputChecker extends ReadTxtFile{
     private String pwChecked;
     private String usernameChecked;
-    
     public InputChecker(){
     }
     public InputChecker(String usernameChecked, String pwChecked) {
@@ -45,17 +50,72 @@ public class InputChecker extends ReadTxtFile{
 				&& anzahlSonderzeichen >= 1;
 	}
 //to do!
-    public boolean userNameChecker(String username){
-       
-       ReadTxtFile usernamechecker = new ReadTxtFile();
-    //schauen ob username existiert
-       return true; 
+    public boolean userNameSame(String usernameString) throws IOException{
+      boolean bool1=true;
+      FileReader f = new FileReader(super.path + super.path2 +"adminList.txt");
+       BufferedReader b = new BufferedReader(new FileReader(super.path + super.path2 +"adminList.txt"));
+       String cnt=b.readLine();
+            //solange die zeile nicht leer ist,zeile lesen.
+            while(cnt != null){
+                    String cnt2 = b.readLine();
+                //eingabe username mit gelesener zeile vergleichen    
+                if(usernameString.equals(cnt2)){
+                //bool1=true;
+                }else{
+                // bool1=false;
+           }
+           }
+            return bool1;
     }
+
 //to do!    
-    public boolean usernamePasswordChecker(String password,String username){
-        ReadTxtFile usernamepasswordchecker = new ReadTxtFile();
+    public boolean usernamePasswordCheckerSame(String username,String password) throws IOException{
+        boolean usernamePasswordChecker=false;
+        InputChecker usernamepasswordchecker = new InputChecker();
+        int lineCounter=0;
+        FileReader fileR = new FileReader(super.path + super.path2 +"adminList.txt");
+        BufferedReader bufferedR = new BufferedReader(new FileReader(super.path + super.path2 +"adminList.txt"));
+        String lineStringusername=bufferedR.readLine();
+        String lineStringpassword = bufferedR.readLine();
+        
     //username und passwort vergleichen ob zusammenpassen
-        return true;
+        
+        //username checken ob schon vorhanden´
+        if(usernamepasswordchecker.userNameSame(username)){
+        //wenn true, dann passwort checken    
+            
+            //solange die zeile ungleich username ist, zeilenanzahl zählen
+            while(lineStringusername != username){
+                bufferedR.readLine();
+                lineCounter++;
+            }
+                //Filereader schließen
+                fileR.close();
+                //sobald die zeilenzahl eine mehr als username ist
+                for(int i= 0;i==lineCounter+1;i++){
+                    lineStringpassword=bufferedR.readLine();
+                }
+                //Filereader schließen
+                fileR.close();
+                    //wenn passwort mit string übereinstimmt,bool ->true
+                    if(lineStringpassword==password){
+                    usernamePasswordChecker=true;
+                }
+                //wenn username und passwort nicht zusammen passen,fehlermeldung
+                else{
+                    JOptionPane.showMessageDialog(null,"Benutzername und Passwort stimmen nicht überein!");
+                }
+        }
+        //wenn username nicht gleich, fehlermeldung
+            else{
+                JOptionPane.showMessageDialog(null,"Dieser Username existiert nicht!");
+            }
+        //Filereader schließen
+        fileR.close();
+        
+        
+        
+        return usernamePasswordChecker;
     }
 }
     

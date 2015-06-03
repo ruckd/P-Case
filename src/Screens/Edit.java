@@ -1,5 +1,6 @@
 package Screens;
 
+import Methods.ReadTxtFile;
 import p_case.*;
 import Methods.TXTReader;
 import javax.swing.JOptionPane;
@@ -178,7 +179,10 @@ public class Edit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
-        TXTReader reader = new TXTReader();
+       
+        
+        
+       TXTReader reader = new TXTReader();
         JOptionPane.showMessageDialog(null, reader.getFAQs());
        
         

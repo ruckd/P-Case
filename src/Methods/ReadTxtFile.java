@@ -6,6 +6,7 @@
 package Methods;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,11 +18,17 @@ import java.io.IOException;
 public class ReadTxtFile extends WriteInTxtFile{
     
     private String[][] content;
+ 
+    
+    
+    
     public String[][] getTextArray(){
       return content;  
     }
     
     
+    
+        
     
     public void FileReaderAdmin(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
     //Pfad der Datei angeben            

@@ -8,7 +8,6 @@ package Screens;
 import Methods.ReadTxtFile;
 import p_case.*;
 import Methods.TXTReader;
-import Methods.WriteInTxtFile;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -102,18 +101,17 @@ public class ListScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonLogout)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonNewListing)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
-                        .addComponent(jButtonTest)
-                        .addGap(294, 294, 294)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 676, Short.MAX_VALUE)
                         .addComponent(jButtonChange_Delete))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelU_name, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonHelp)))
+                        .addComponent(jButtonHelp))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonLogout)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButtonTest))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -130,9 +128,10 @@ public class ListScreen extends javax.swing.JFrame {
                     .addComponent(jButtonNewListing)
                     .addComponent(jButtonChange_Delete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonTest))
+                .addComponent(jButtonTest)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();

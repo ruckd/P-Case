@@ -7,7 +7,11 @@ package Screens;
 
 import Methods.TXTReader;
 import Methods.WriteInTxtFile;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import p_case.NormalUser;
 
 /**
  *
@@ -163,10 +167,21 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelMouseClicked
 
     private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
+    
+    //neuen User erstellen
+        NormalUser neuerUser = new NormalUser(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText());
         
+    //userdaten in admin.txt schreiben
         WriteInTxtFile registerNewUser = new WriteInTxtFile();
         registerNewUser.schreibenAdminList(jTextFieldUsernameRegister,jPasswordFieldPasswordRegister,jPasswordFieldPasswordCheck);
-        dispose();
+        try {
+            registerNewUser.writeNewUserFile();
+        } catch (IOException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
     }//GEN-LAST:event_jButtonRegisterMouseClicked
     
     
@@ -202,6 +217,7 @@ public class Register extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Register().setVisible(true);
             }
@@ -221,4 +237,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldUsernameRegister;
     private javax.swing.JTextField jTextLogo;
     // End of variables declaration//GEN-END:variables
-}
+
+    
+    }
+
