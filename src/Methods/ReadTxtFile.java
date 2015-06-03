@@ -89,7 +89,7 @@ public class ReadTxtFile extends WriteInTxtFile{
     }
     public void FileReaderUser(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
     //Pfad der Datei angeben            
-        FileReader f = new FileReader(super.path + super.path2 + "user1.txt");
+        FileReader f = new FileReader(super.path + super.path2 + "user"+countUser+".txt");
         BufferedReader b = new BufferedReader(f);
         int n = 0;
         String cnt=b.readLine();
@@ -103,7 +103,7 @@ public class ReadTxtFile extends WriteInTxtFile{
                 //stringarray erstellen mit "n" speicherplatz
                 content=new String[n/4][4];
                 //reader wieder öffnen
-                f = new FileReader(super.path + super.path2 + "user1.txt");
+                f = new FileReader(super.path + super.path2 + "user"+countUser+".txt");
                 b = new BufferedReader(f);
                 //das was in der zeile steht, an stelle "i" des StringArray speichern
                 for(int i = 0;i<n/5;i++){
@@ -111,7 +111,7 @@ public class ReadTxtFile extends WriteInTxtFile{
                             for(int k = 0;k<4;k++){
                                 content[i][k] = b.readLine();
                             //code ausgeben  BEMERKUNG: eine zeile am anfang zu viel
-                                jTextArea.setText(jTextArea.getText() + "" +content[i][k]);
+                                jTextArea.setText(jTextArea.getText() + "     " +content[i][k]);
                             }
                             //neue zeile nach den 4 daten(nr,username,pw,domain)
                             jTextArea.setText(jTextArea.getText() +"\n");

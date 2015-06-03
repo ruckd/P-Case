@@ -6,9 +6,6 @@
 package p_case;
 
 
-import Methods.InputChecker;
-import Methods.ReadTxtFile;
-import Methods.WriteInTxtFile;
 import Screens.Login;
 import java.io.IOException;
 

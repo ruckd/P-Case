@@ -26,26 +26,27 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelPasswd" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldPasswd" min="-2" pref="340" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabelU_Name" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextFieldU_Name" min="-2" pref="340" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelTitle" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelTitle" max="32767" attributes="0"/>
+                                  <Component id="jLabelPasswd" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldTitle" min="-2" pref="340" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextFieldDomain" min="-2" pref="340" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPasswd" alignment="0" min="-2" pref="340" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Component id="jTextFieldHeadline" alignment="1" min="-2" pref="440" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                       <Component id="jButtonHelp" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -76,22 +77,22 @@
               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldDomain" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelU_Name" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldU_Name" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelPasswd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldPasswd" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="jButtonNew" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonCancel2" pref="40" max="32767" attributes="0"/>
+              <Component id="jButtonCancel2" pref="43" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -124,7 +125,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTitle">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Titel"/>
+        <Property name="text" type="java.lang.String" value="Domain"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelU_Name">
@@ -137,7 +138,7 @@
         <Property name="text" type="java.lang.String" value="Passwort"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldTitle">
+    <Component class="javax.swing.JTextField" name="jTextFieldDomain">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldU_Name">
     </Component>

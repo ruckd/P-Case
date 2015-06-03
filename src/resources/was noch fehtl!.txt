@@ -1,0 +1,5 @@
+datei einem user anheften
+user speichern(wenn möglich?)
+tabelle ordentlich darstellen
+bearbeiten von eintraegen
+loeschen von eintraegen

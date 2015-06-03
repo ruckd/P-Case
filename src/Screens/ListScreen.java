@@ -165,7 +165,7 @@ public class ListScreen extends javax.swing.JFrame {
         
         ReadTxtFile rtxtf = new ReadTxtFile();
         try {
-            rtxtf.FileReaderAdmin(jTextAreaTabelle);
+            rtxtf.FileReaderUser(jTextAreaTabelle);
         } catch (IOException ex) {
             Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
         }

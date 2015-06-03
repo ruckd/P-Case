@@ -7,6 +7,7 @@ package Screens;
 
 import p_case.*;
 import Methods.TXTReader;
+import Methods.WriteInTxtFile;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,7 +37,7 @@ public class NewListing extends javax.swing.JFrame {
         jLabelTitle = new javax.swing.JLabel();
         jLabelU_Name = new javax.swing.JLabel();
         jLabelPasswd = new javax.swing.JLabel();
-        jTextFieldTitle = new javax.swing.JTextField();
+        jTextFieldDomain = new javax.swing.JTextField();
         jTextFieldU_Name = new javax.swing.JTextField();
         jTextFieldPasswd = new javax.swing.JTextField();
         jButtonCancel2 = new javax.swing.JButton();
@@ -58,7 +59,7 @@ public class NewListing extends javax.swing.JFrame {
             }
         });
 
-        jLabelTitle.setText("Titel");
+        jLabelTitle.setText("Domain");
 
         jLabelU_Name.setText("Benutzername");
 
@@ -97,22 +98,22 @@ public class NewListing extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelPasswd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabelU_Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldU_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelPasswd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldDomain, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jTextFieldHeadline, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                         .addComponent(jButtonHelp))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -134,19 +135,19 @@ public class NewListing extends javax.swing.JFrame {
                 .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTitle)
-                    .addComponent(jTextFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDomain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelU_Name)
                     .addComponent(jTextFieldU_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPasswd)
                     .addComponent(jTextFieldPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addComponent(jButtonNew, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonCancel2, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(jButtonCancel2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -169,12 +170,13 @@ public class NewListing extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancel2MouseClicked
 
     private void jButtonNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNewMouseClicked
-        // TODO add your handling code here:
+        WriteInTxtFile userwrite = new WriteInTxtFile();
+        userwrite.schreibenUserList(jTextFieldDomain ,jTextFieldU_Name,jTextFieldPasswd);
     }//GEN-LAST:event_jButtonNewMouseClicked
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
         // TODO add your handling code here:
-        dispose();
+        
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     /**
@@ -221,9 +223,9 @@ public class NewListing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPasswd;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelU_Name;
+    private javax.swing.JTextField jTextFieldDomain;
     private javax.swing.JTextField jTextFieldHeadline;
     private javax.swing.JTextField jTextFieldPasswd;
-    private javax.swing.JTextField jTextFieldTitle;
     private javax.swing.JTextField jTextFieldU_Name;
     // End of variables declaration//GEN-END:variables
 }

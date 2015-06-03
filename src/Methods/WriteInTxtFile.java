@@ -32,25 +32,24 @@ public class WriteInTxtFile{
 
     
     
-    public void schreibenUserList() {
-           
-        try{
-        
+    public void schreibenUserList(javax.swing.JTextField jTextFielddomain,javax.swing.JTextField jTextFieldUsername,javax.swing.JTextField jTextFieldPassword) {
+       try{
+            
                 File file = new File(path + path2 + "user" + countUser+".txt");
             //wenn es die datei bereits gibt mache das:
                 if (file.exists()) {
+                    
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
-                    /*
-                        String s;
-                        s = "TEXT";
-                        b.write(s);
-                        b.newLine();
                     
-                 */
+                    String domain = jTextFielddomain.getText();
+                    String username =jTextFieldUsername.getText();
+                    String password = jTextFieldPassword.getText();
+                    b.write(countUser + "\n" + domain + "\n" + username + "\n" + password + "\n");
+
                     //schließen
                     b.close();
             //wenn datei nicht existiert wird sie hier erstellt
@@ -72,7 +71,6 @@ public class WriteInTxtFile{
     }
     public void writeNewUserFile() throws IOException{
         fw = new FileWriter(path + path2 + "user"+countUser+".txt");
-        countUser++;
     }
     public void schreibenAdminList(javax.swing.JTextField jTextFieldUsername,javax.swing.JPasswordField jPasswordFieldPassword,javax.swing.JPasswordField jPasswordFieldPasswordCheck) {
         //neuen leeren writer erstellen

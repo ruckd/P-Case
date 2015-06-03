@@ -1,7 +1,5 @@
 package Screens;
 import Methods.InputChecker;
-import Methods.ReadTxtFile;
-import p_case.*;
 import Methods.TXTReader;
 import Methods.WriteInTxtFile;
 import java.io.IOException;
@@ -37,13 +35,13 @@ public class Login extends javax.swing.JFrame{
     private void initComponents() {
 
         jTextUser = new javax.swing.JTextField();
-        jTextPasswort = new javax.swing.JTextField();
         jLabelUser = new javax.swing.JLabel();
         jLabelPasswort = new javax.swing.JLabel();
         jButtonFAQ = new javax.swing.JButton();
         jTextLogo = new javax.swing.JTextField();
         jButtonRegister = new javax.swing.JButton();
         jButtonRegister1 = new javax.swing.JButton();
+        jPasswordFieldPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,9 +93,9 @@ public class Login extends javax.swing.JFrame{
                             .addComponent(jLabelUser, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelPasswort, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextUser, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(jPasswordFieldPassword))
                         .addGap(103, 103, 103))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -118,15 +116,15 @@ public class Login extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelUser))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelPasswort))
-                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPasswort)
+                    .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonFAQ)
                     .addComponent(jButtonRegister)
@@ -145,22 +143,22 @@ public class Login extends javax.swing.JFrame{
     private void jButtonRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegister1MouseClicked
         
         //schauen ob username und passwort zusammenpasst
-        InputChecker inputcheckerLogin = new InputChecker();
+        /*InputChecker inputcheckerLogin = new InputChecker();
         try {
-            
-            if(inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jTextPasswort.getText())){
+            if(inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jPasswordFieldPassword.getText())){
             //neue datei erstellen
                 //to do !!!!auf user zuweisen!!!
                 WriteInTxtFile wtxtf = new WriteInTxtFile();
-                wtxtf.schreibenUserList();
+                wtxtf.schreibenUserList(null,null,null);
+                */
                 new ListScreen().setVisible(true);
                 dispose();
-            }else{
+            /*}else{
                 JOptionPane.showMessageDialog(null,"Benutzername oder Passwort ist falsch!");
             }
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
         
         
@@ -224,8 +222,8 @@ public class Login extends javax.swing.JFrame{
     private javax.swing.JButton jButtonRegister1;
     private javax.swing.JLabel jLabelPasswort;
     private javax.swing.JLabel jLabelUser;
+    private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JTextField jTextLogo;
-    private javax.swing.JTextField jTextPasswort;
     private javax.swing.JTextField jTextUser;
     // End of variables declaration//GEN-END:variables
 }
