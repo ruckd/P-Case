@@ -5,6 +5,7 @@
  */
 package Screens;
 
+import Methods.InputChecker;
 import Methods.TXTReader;
 import Methods.WriteInTxtFile;
 import java.io.IOException;
@@ -170,7 +171,13 @@ public class Register extends javax.swing.JFrame {
     
     //neuen User erstellen
         NormalUser neuerUser = new NormalUser(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText());
-        
+    //nachschauen ob username bereits vergeben
+        InputChecker ipchecker= new InputChecker();
+        try {
+            ipchecker.userNameSame(jTextFieldUsernameRegister.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
     //userdaten in admin.txt schreiben
         WriteInTxtFile registerNewUser = new WriteInTxtFile();
         registerNewUser.schreibenAdminList(jTextFieldUsernameRegister,jPasswordFieldPasswordRegister,jPasswordFieldPasswordCheck);

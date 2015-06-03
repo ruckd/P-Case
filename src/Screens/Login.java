@@ -143,23 +143,28 @@ public class Login extends javax.swing.JFrame{
     }//GEN-LAST:event_jButtonFAQMouseClicked
 
     private void jButtonRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegister1MouseClicked
-        new ListScreen().setVisible(true);
-        /*
+        
         //schauen ob username und passwort zusammenpasst
         InputChecker inputcheckerLogin = new InputChecker();
         try {
-            inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jTextPasswort.getText());
+            
+            if(inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jTextPasswort.getText())){
+            //neue datei erstellen
+                //to do !!!!auf user zuweisen!!!
+                WriteInTxtFile wtxtf = new WriteInTxtFile();
+                wtxtf.schreibenUserList();
+                new ListScreen().setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"Benutzername oder Passwort ist falsch!");
+            }
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
-        //neue datei erstellen
-        //to do !!!!auf user zuweisen!!!
-        WriteInTxtFile wtxtf = new WriteInTxtFile();
-        wtxtf.schreibenUserList();
+        }
         
         
-        dispose();
+        
+        
     }//GEN-LAST:event_jButtonRegister1MouseClicked
 
     private void jButtonRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegister1ActionPerformed

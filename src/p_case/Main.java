@@ -6,6 +6,9 @@
 package p_case;
 
 
+import Methods.InputChecker;
+import Methods.ReadTxtFile;
+import Methods.WriteInTxtFile;
 import Screens.Login;
 import java.io.IOException;
 
@@ -17,11 +20,10 @@ import java.io.IOException;
  *   
  *
  */
-public class Main {
+public class Main{
     
     public static void main(String args[]) throws IOException {
         new Login().setVisible(true);    
-        
-        
+
     }   
 }

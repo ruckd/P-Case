@@ -28,8 +28,33 @@ public class ReadTxtFile extends WriteInTxtFile{
     
     
     
+      /*  
+    public String FileReaderTest(String fileName) throws FileNotFoundException, IOException{
+
+        BufferedReader brTest = new BufferedReader(new FileReader(fileName));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = brTest.readLine();
+                while (line != null) {
+                    if(line.matches("abc")){
+                        sb.append("-0");
+                        sb.append("\n");
+                        line = brTest.readLine();
+        }else{
+                        sb.append(line);
+                        sb.append("\n");
+                        line = brTest.readLine();
+                    }
+                }
         
-    
+        return sb.toString();
+        
+    } finally {
+        brTest.close();
+    }
+}
+     */
+       
     public void FileReaderAdmin(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
     //Pfad der Datei angeben            
         FileReader f = new FileReader(super.path + super.path2 +"adminList.txt");
