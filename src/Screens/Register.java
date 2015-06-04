@@ -170,7 +170,8 @@ public class Register extends javax.swing.JFrame {
     private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
     
     //neuen User erstellen
-        NormalUser neuerUser = new NormalUser(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText());
+        
+       // NormalUser neuerUser = new NormalUser(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText());
     //nachschauen ob username bereits vergeben
         InputChecker ipchecker= new InputChecker();
         try {
@@ -180,7 +181,7 @@ public class Register extends javax.swing.JFrame {
         }
     //userdaten in admin.txt schreiben
         WriteInTxtFile registerNewUser = new WriteInTxtFile();
-        registerNewUser.schreibenAdminList(jTextFieldUsernameRegister,jPasswordFieldPasswordRegister,jPasswordFieldPasswordCheck);
+        registerNewUser.schreibenInAdminList(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText(),jPasswordFieldPasswordCheck.getText());
         try {
             registerNewUser.writeNewUserFile();
         } catch (IOException ex) {

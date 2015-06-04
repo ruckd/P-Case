@@ -16,7 +16,7 @@ public class NormalUser extends User{
     public static int countuser2 = 1;
     
 
-    public NormalUser(String userName, String userPasswd) {
+    public NormalUser(int iD,String userName, String userPasswd) {
         super(userName, userPasswd);
         super.adm=false;
         iD=countuser2;

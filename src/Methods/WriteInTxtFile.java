@@ -26,13 +26,13 @@ public class WriteInTxtFile{
     String path = System.getProperty("user.dir");
     String path2 = "/src/resources/";
     Writer fw = null;
-    
+    File file;
 
 
 
     
     
-    public void schreibenUserList(javax.swing.JTextField jTextFielddomain,javax.swing.JTextField jTextFieldUsername,javax.swing.JTextField jTextFieldPassword) {
+    public void schreibenInUserList(String jTextFieldUsername,String jTextFieldPassword,String jTextFielddomain) {
        try{
             
                 File file = new File(path + path2 + "user" + countUser+".txt");
@@ -40,15 +40,16 @@ public class WriteInTxtFile{
                 if (file.exists()) {
                     
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                    FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
+                    //FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
+                    FileWriter fileW = new FileWriter (path + path2 + "adminList2.txt",true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
                     
-                    String domain = jTextFielddomain.getText();
-                    String username =jTextFieldUsername.getText();
-                    String password = jTextFieldPassword.getText();
-                    b.write(countUser + "\n" + domain + "\n" + username + "\n" + password + "\n");
+                    String domain = jTextFielddomain;
+                    String username =jTextFieldUsername;
+                    String password = jTextFieldPassword;
+                    b.write(countUser + "\n" + username + "\n" + password + "\n" + domain + "\n");
 
                     //schließen
                     b.close();
@@ -72,7 +73,8 @@ public class WriteInTxtFile{
     public void writeNewUserFile() throws IOException{
         fw = new FileWriter(path + path2 + "user"+countUser+".txt");
     }
-    public void schreibenAdminList(javax.swing.JTextField jTextFieldUsername,javax.swing.JPasswordField jPasswordFieldPassword,javax.swing.JPasswordField jPasswordFieldPasswordCheck) {
+   
+    public void schreibenInAdminList(String jTextFieldUsername,String jPasswordFieldPassword,String jPasswordFieldPasswordCheck) {
         //neuen leeren writer erstellen
         Writer fw = null;
         InputChecker inputCheck = new InputChecker("a","b");
@@ -88,17 +90,17 @@ public class WriteInTxtFile{
                     //Text der geschrieben werden soll
                     
                   
-                    if(inputCheck.userNameSame(jTextFieldUsername.getText())==true){
+                    if(inputCheck.userNameSame(jTextFieldUsername)==true){
                         JOptionPane.showMessageDialog(null, "Dieser Username existiert bereits!");
                     }else{
                     //checken ob passwörter gleich sind
-                      if(jPasswordFieldPassword.getText().equals(jPasswordFieldPasswordCheck.getText())){
+                      if(jPasswordFieldPassword.equals(jPasswordFieldPasswordCheck)){
                         //checken ob passwort "unsicher" ist
-                        if(inputCheck.passwordChecker(jPasswordFieldPassword.getText())!=true){
+                        if(inputCheck.passwordChecker(jPasswordFieldPassword)!=true){
                             JOptionPane.showMessageDialog(null, "Bitte benutzen Sie ein sicheres Passwort!");   
                         }else{
-                            String usernameString = jTextFieldUsername.getText();
-                            String pwString = jPasswordFieldPassword.getText();
+                            String usernameString = jTextFieldUsername;
+                            String pwString = jPasswordFieldPassword;
                             b.write(usernameString);
                             b.newLine();
                             b.write(pwString);
@@ -127,8 +129,55 @@ public class WriteInTxtFile{
             }
         }    
     }   
-    
-    //code zum schreiben
+    public void schreibenInAdminListNoCheck(String iD,String username,String password) throws IOException{
+        Writer fw = null;
+        try{            
+                File file = new File(path + path2 + "adminList.txt");
+                //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
+                FileWriter fileW = new FileWriter (path + path2 + "adminList.txt",true);
+                //buffered writer, der schreibt.
+                BufferedWriter b = new BufferedWriter (fileW);
+                //Text der geschrieben werden soll
+                    b.write(iD + "\n" + username + "\n" + password + "\n"); 
+                    //schließen
+                    b.close();              
+        }catch(IOException e){
+            System.err.println( "Konnte Datei nicht erstellen" );
+        }
+        finally {
+           if(fw!=null)
+            try{
+                fw.close(); 
+            } catch ( IOException e ) {
+            }
+        }
+    }
+    public void schreibenInAdminListNoCheck(String schreib){
+        Writer fw = null;
+        try{            
+                File file = new File(path + path2 + "adminList.txt");
+                //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
+                FileWriter fileW = new FileWriter (path + path2 + "adminList.txt",true);
+                //buffered writer, der schreibt.
+                BufferedWriter b = new BufferedWriter (fileW);
+                //Text der geschrieben werden soll
+                    b.write(schreib); 
+                    //schließen
+                    b.close();              
+        }catch(IOException e){
+            System.err.println( "Konnte Datei nicht erstellen" );
+        }
+        finally {
+           if(fw!=null)
+            try{
+                fw.close(); 
+            } catch ( IOException e ) {
+            }
+        }
+    }
+
+
+//code zum schreiben
         //    WriteInTxtFile abc = new WriteInTxtFile();
         //    abc.schreiben();
 
