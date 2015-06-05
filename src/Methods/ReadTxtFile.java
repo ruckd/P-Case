@@ -28,97 +28,49 @@ public class ReadTxtFile extends WriteInTxtFile{
     
     
     
-      /*  
-    public String FileReaderTest(String fileName) throws FileNotFoundException, IOException{
+       
+    public void FileReaderUser(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
 
-        BufferedReader brTest = new BufferedReader(new FileReader(fileName));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt"));
         try {
             StringBuilder sb = new StringBuilder();
             String line = brTest.readLine();
                 while (line != null) {
-                    if(line.matches("abc")){
-                        sb.append("-0");
-                        sb.append("\n");
-                        line = brTest.readLine();
-        }else{
+                    for(int i = 0;i<4;i++){
                         sb.append(line);
-                        sb.append("\n");
+                        sb.append("-");
                         line = brTest.readLine();
                     }
+                    sb.append("\n");
                 }
-        
-        return sb.toString();
+            jTextArea.setText(jTextArea.getText() +sb.toString());
         
     } finally {
         brTest.close();
     }
 }
-     */
-       
     public void FileReaderAdmin(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
-    //Pfad der Datei angeben            
-        FileReader f = new FileReader(super.path + super.path2 +"adminList.txt");
-        BufferedReader b = new BufferedReader(f);
-        int n = 0;
-        String cnt=b.readLine();
-            //solange die zeile nicht leer ist,zeile lesen.
-            while( cnt != null){
-                n++;
-                cnt = b.readLine();
-            }
-                //reader schliessen
-                f.close();
-                //stringarray erstellen mit "n" speicherplatz
-                content=new String[n/3][3];
-                //reader wieder öffnen
-                f = new FileReader(super.path + super.path2 +"adminList.txt");
-                b = new BufferedReader(f);
-                //das was in der zeile steht, an stelle "i" des StringArray speichern
-                for(int i = 0;i<n/5;i++){
-                        for(int j=0;j<4;j++){
-                            for(int k = 0;k<3;k++){
-                                content[i][k] = b.readLine();
-                            //code ausgeben  BEMERKUNG: eine zeile am anfang zu viel
-                                jTextArea.setText(jTextArea.getText() + " " +content[i][k]);
-                            }
-                           //neue zeile nach den 4 daten(nr,username,pw,domain)
-                            jTextArea.setText(jTextArea.getText() +"\n");
-                        }    
+
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt"));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = brTest.readLine();
+                while (line != null) {
+                    
+                    for(int i = 0;i<3;i++){
+                        sb.append(line);
+                        sb.append("-");
+                        line = brTest.readLine();
+                    }
+                    sb.append("\n");
                 }
-                    f.close();                   
+            jTextArea.setText(jTextArea.getText() +sb.toString());
+        
+    } finally {
+        brTest.close();
     }
-    public void FileReaderUser(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
-    //Pfad der Datei angeben            
-        FileReader f = new FileReader(super.path + super.path2 + "user"+countUser+".txt");
-        BufferedReader b = new BufferedReader(f);
-        int n = 0;
-        String cnt=b.readLine();
-            //solange die zeile nicht leer ist,zeile lesen.
-            while( cnt != null){
-                n++;
-                cnt = b.readLine();
-            }
-                //reader schliessen
-                f.close();
-                //stringarray erstellen mit "n" speicherplatz
-                content=new String[n/4][4];
-                //reader wieder öffnen
-                f = new FileReader(super.path + super.path2 + "user"+countUser+".txt");
-                b = new BufferedReader(f);
-                //das was in der zeile steht, an stelle "i" des StringArray speichern
-                for(int i = 0;i<n/5;i++){
-                        for(int j=0;j<4;j++){
-                            for(int k = 0;k<4;k++){
-                                content[i][k] = b.readLine();
-                            //code ausgeben  BEMERKUNG: eine zeile am anfang zu viel
-                                jTextArea.setText(jTextArea.getText() + "     " +content[i][k]);
-                            }
-                            //neue zeile nach den 4 daten(nr,username,pw,domain)
-                            jTextArea.setText(jTextArea.getText() +"\n");
-                        }    
-                }
-                    f.close();
-    }
+}
+
     //code zum lesen
         //    ReadTxtFile def = new ReadTxtFile();
         //    def.Filereaderexample();    

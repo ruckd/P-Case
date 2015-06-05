@@ -73,7 +73,6 @@ public class WriteInTxtFile{
     public void writeNewUserFile() throws IOException{
         fw = new FileWriter(path + path2 + "user"+countUser+".txt");
     }
-   
     public void schreibenInAdminList(String jTextFieldUsername,String jPasswordFieldPassword,String jPasswordFieldPasswordCheck) {
         //neuen leeren writer erstellen
         Writer fw = null;

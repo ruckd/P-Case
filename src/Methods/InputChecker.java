@@ -22,7 +22,6 @@ public class InputChecker extends ReadTxtFile{
     public InputChecker(String usernameChecked, String pwChecked) {
         this.usernameChecked = usernameChecked;
         this.pwChecked = pwChecked;
-        
     }
     public boolean passwordChecker(String password) {
 		int anzahlKleinBuchstaben = 0;
@@ -48,7 +47,6 @@ public class InputChecker extends ReadTxtFile{
 				&& anzahlKleinBuchstaben >= 1 && anzahlGrossBuchstaben >= 1
 				&& anzahlSonderzeichen >= 1;
 	}
-
     public boolean userNameSame(String usernameString) throws IOException{
       boolean bool1=false;
       BufferedReader brUsernameSame = new BufferedReader(new FileReader(super.path + super.path2 +"adminList.txt"));
@@ -75,8 +73,6 @@ public class InputChecker extends ReadTxtFile{
       }
         return bool1;
     }
-
-   
     public boolean usernamePasswordCheckerSame(String username,String password) throws IOException{
         boolean bool1=false;
       BufferedReader brUsernameSame = new BufferedReader(new FileReader(super.path + super.path2 +"adminList.txt"));

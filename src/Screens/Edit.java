@@ -208,7 +208,7 @@ public class Edit extends javax.swing.JFrame {
         
         EditAndDelete editdelete= new EditAndDelete();
         try {
-            editdelete.DeleteForAdmin(jTextFieldNumber.getText(), jTextFieldU_Name.getText(), jTextFieldPasswd.getText());
+            editdelete.DeleteForAdmin(jTextFieldNumber.getText());
         } catch (IOException ex) {
             Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
         }

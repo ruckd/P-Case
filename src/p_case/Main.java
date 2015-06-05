@@ -6,6 +6,8 @@
 package p_case;
 
 
+import Methods.EditAndDelete;
+import Methods.ReadTxtFile;
 import Screens.Login;
 import java.io.IOException;
 
@@ -20,7 +22,11 @@ import java.io.IOException;
 public class Main{
     
     public static void main(String args[]) throws IOException {
-        new Login().setVisible(true);    
-
+        //new Login().setVisible(true);    
+        
+        
+        
+        EditAndDelete abc = new EditAndDelete();
+        abc.DeleteForAdmin("3");
     }   
 }

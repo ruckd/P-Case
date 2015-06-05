@@ -162,14 +162,22 @@ public class ListScreen extends javax.swing.JFrame {
     private void jButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTestMouseClicked
 
         
+        ReadTxtFile abc = new ReadTxtFile();
+        try {
+            abc.FileReaderUser(jTextAreaTabelle);
+        } catch (IOException ex) {
+            Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        
+      /*  
         ReadTxtFile rtxtf = new ReadTxtFile();
         try {
             rtxtf.FileReaderUser(jTextAreaTabelle);
         } catch (IOException ex) {
             Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-               
+               */
     }//GEN-LAST:event_jButtonTestMouseClicked
 
     /**

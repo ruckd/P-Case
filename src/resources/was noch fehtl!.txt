@@ -1,5 +1,9 @@
 datei einem user anheften
+
 user speichern(wenn möglich?)
+
 tabelle ordentlich darstellen
-bearbeiten von eintraegen
-loeschen von eintraegen
+
+loeschen von eintraegen(löscht eine zeile zu spät + schreibt unten dran nur!)
+
+Richtige Dateien(pfad!) in richtige methoden!

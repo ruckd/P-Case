@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import p_case.NormalUser;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -143,22 +144,22 @@ public class Login extends javax.swing.JFrame{
     private void jButtonRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegister1MouseClicked
         
         //schauen ob username und passwort zusammenpasst
-        /*InputChecker inputcheckerLogin = new InputChecker();
+        InputChecker inputcheckerLogin = new InputChecker();
         try {
             if(inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jPasswordFieldPassword.getText())){
             //neue datei erstellen
                 //to do !!!!auf user zuweisen!!!
                 WriteInTxtFile wtxtf = new WriteInTxtFile();
-                wtxtf.schreibenUserList(null,null,null);
-                */
+                wtxtf.schreibenInUserList(null,null,null);
+                
                 new ListScreen().setVisible(true);
                 dispose();
-            /*}else{
+            }else{
                 JOptionPane.showMessageDialog(null,"Benutzername oder Passwort ist falsch!");
             }
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         
         
         
@@ -166,11 +167,6 @@ public class Login extends javax.swing.JFrame{
     }//GEN-LAST:event_jButtonRegister1MouseClicked
 
     private void jButtonRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegister1ActionPerformed
-
-        
-        
-        
-        
     }//GEN-LAST:event_jButtonRegister1ActionPerformed
 
     private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
