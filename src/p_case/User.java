@@ -1,45 +1,21 @@
 package p_case;
 
+import java.io.File;
+
 /**
  *
  * @author ruckd
  */
 public abstract class User {
 
-    private String userName;
-    private String userPasswd;
-    private final int iD;
-    private static int nextID = 1;
+    private final String userName;
+    private final String userPasswd;
     protected boolean adm;
 
-    public User(int iD, String userName, String userPasswd) {
-        this.iD = nextID++;
+    public User(String userName, String userPasswd) {
+        
         this.userName = userName;
-        this.userPasswd = userPasswd;
+        this.userPasswd = userPasswd;  
+        this.adm =true;
     }
-
-    public int getID() {
-        return this.iD;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserPasswd() {
-        return this.userPasswd;
-    }
-
-    public void setUserPasswd(String userPasswd) {
-        this.userPasswd = userPasswd;
-    }
-
-    public boolean getAdmState() {
-        return this.adm;
-    }
-
 }

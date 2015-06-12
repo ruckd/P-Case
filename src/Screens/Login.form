@@ -32,9 +32,9 @@
                           <Component id="jLabelPasswort" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextPasswort" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="jTextUser" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextUser" pref="150" max="32767" attributes="0"/>
+                          <Component id="jPasswordFieldPassword" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
@@ -62,17 +62,17 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextLogo" min="-2" pref="61" max="-2" attributes="0"/>
-              <EmptySpace pref="55" max="32767" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelUser" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextPasswort" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelPasswort" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelPasswort" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPasswordFieldPassword" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonFAQ" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRegister" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -85,8 +85,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="jTextUser">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextPasswort">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUser">
       <Properties>
@@ -123,11 +121,20 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrieren"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonRegisterMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonRegister1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonRegister1MouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegister1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jPasswordFieldPassword">
     </Component>
   </SubComponents>
 </Form>
