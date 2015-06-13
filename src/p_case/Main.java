@@ -7,6 +7,7 @@ package p_case;
 
 
 import Methods.EditAndDelete;
+import Methods.FileToUser;
 import Methods.ReadTxtFile;
 import Screens.Login;
 import java.io.IOException;
@@ -24,9 +25,8 @@ public class Main{
     public static void main(String args[]) throws IOException {
         //new Login().setVisible(true);    
         
-        
-        
-        EditAndDelete abc = new EditAndDelete();
-        abc.DeleteForAdmin("3");
+        FileToUser abc = new FileToUser();
+        String b = "Username6";
+        abc.getSpecificUseriD(b);
     }   
 }

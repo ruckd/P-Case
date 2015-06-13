@@ -41,8 +41,18 @@ public class ListScreen extends javax.swing.JFrame {
         jButtonChange_Delete = new javax.swing.JButton();
         jButtonHelp = new javax.swing.JButton();
         jButtonTest = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaTabelle = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaBenutzername = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextAreaPasswort = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextAreaDomain = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextAreaNummer = new javax.swing.JTextArea();
+        jLabelNummer = new javax.swing.JLabel();
+        jLabelBenutzername = new javax.swing.JLabel();
+        jLabelPasswort = new javax.swing.JLabel();
+        jLabelDomain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,9 +98,29 @@ public class ListScreen extends javax.swing.JFrame {
             }
         });
 
-        jTextAreaTabelle.setColumns(20);
-        jTextAreaTabelle.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaTabelle);
+        jTextAreaBenutzername.setColumns(20);
+        jTextAreaBenutzername.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaBenutzername);
+
+        jTextAreaPasswort.setColumns(20);
+        jTextAreaPasswort.setRows(5);
+        jScrollPane4.setViewportView(jTextAreaPasswort);
+
+        jTextAreaDomain.setColumns(20);
+        jTextAreaDomain.setRows(5);
+        jScrollPane5.setViewportView(jTextAreaDomain);
+
+        jTextAreaNummer.setColumns(20);
+        jTextAreaNummer.setRows(5);
+        jScrollPane6.setViewportView(jTextAreaNummer);
+
+        jLabelNummer.setText("Nummer");
+
+        jLabelBenutzername.setText("Benutzername");
+
+        jLabelPasswort.setText("Passwort");
+
+        jLabelDomain.setText("Domain");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,7 +129,6 @@ public class ListScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonNewListing)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 676, Short.MAX_VALUE)
@@ -109,9 +138,30 @@ public class ListScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonHelp))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonLogout)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButtonTest))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonLogout)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelNummer)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButtonTest)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelBenutzername))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelPasswort))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabelDomain)
+                                        .addGap(8, 8, 8)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -121,17 +171,32 @@ public class ListScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelU_name, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonHelp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonLogout)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonNewListing)
-                    .addComponent(jButtonChange_Delete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonTest)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonLogout)
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonNewListing)
+                            .addComponent(jButtonChange_Delete))
+                        .addGap(357, 357, 357)
+                        .addComponent(jButtonTest))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelNummer)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelBenutzername)
+                                .addComponent(jLabelPasswort)
+                                .addComponent(jLabelDomain)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,7 +229,7 @@ public class ListScreen extends javax.swing.JFrame {
         
         ReadTxtFile abc = new ReadTxtFile();
         try {
-            abc.FileReaderUser(jTextAreaTabelle);
+            abc.FileReaderAdmin(jTextAreaNummer,jTextAreaBenutzername,jTextAreaPasswort);
         } catch (IOException ex) {
             Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -227,8 +292,18 @@ public class ListScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogout;
     private javax.swing.JButton jButtonNewListing;
     private javax.swing.JButton jButtonTest;
+    private javax.swing.JLabel jLabelBenutzername;
+    private javax.swing.JLabel jLabelDomain;
+    private javax.swing.JLabel jLabelNummer;
+    private javax.swing.JLabel jLabelPasswort;
     private javax.swing.JLabel jLabelU_name;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaTabelle;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextArea jTextAreaBenutzername;
+    private javax.swing.JTextArea jTextAreaDomain;
+    private javax.swing.JTextArea jTextAreaNummer;
+    private javax.swing.JTextArea jTextAreaPasswort;
     // End of variables declaration//GEN-END:variables
 }

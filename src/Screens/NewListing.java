@@ -170,8 +170,12 @@ public class NewListing extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancel2MouseClicked
 
     private void jButtonNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNewMouseClicked
+        
+        
         WriteInTxtFile userwrite = new WriteInTxtFile();
         userwrite.schreibenInUserList(jTextFieldDomain.getText() ,jTextFieldU_Name.getText(),jTextFieldPasswd.getText());
+        
+        
     }//GEN-LAST:event_jButtonNewMouseClicked
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed

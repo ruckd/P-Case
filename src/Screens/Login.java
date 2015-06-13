@@ -6,12 +6,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import p_case.NormalUser;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  *
@@ -41,7 +36,7 @@ public class Login extends javax.swing.JFrame{
         jButtonFAQ = new javax.swing.JButton();
         jTextLogo = new javax.swing.JTextField();
         jButtonRegister = new javax.swing.JButton();
-        jButtonRegister1 = new javax.swing.JButton();
+        jButtonLogin = new javax.swing.JButton();
         jPasswordFieldPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,15 +65,15 @@ public class Login extends javax.swing.JFrame{
             }
         });
 
-        jButtonRegister1.setText("Login");
-        jButtonRegister1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonLogin.setText("Login");
+        jButtonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonRegister1MouseClicked(evt);
+                jButtonLoginMouseClicked(evt);
             }
         });
-        jButtonRegister1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegister1ActionPerformed(evt);
+                jButtonLoginActionPerformed(evt);
             }
         });
 
@@ -109,7 +104,7 @@ public class Login extends javax.swing.JFrame{
                 .addGap(4, 4, 4)
                 .addComponent(jButtonFAQ)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRegister1)
+                .addComponent(jButtonLogin)
                 .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
@@ -129,7 +124,7 @@ public class Login extends javax.swing.JFrame{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonFAQ)
                     .addComponent(jButtonRegister)
-                    .addComponent(jButtonRegister1))
+                    .addComponent(jButtonLogin))
                 .addGap(35, 35, 35))
         );
 
@@ -141,17 +136,14 @@ public class Login extends javax.swing.JFrame{
         JOptionPane.showMessageDialog(null, reader.getFAQs());
     }//GEN-LAST:event_jButtonFAQMouseClicked
 
-    private void jButtonRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegister1MouseClicked
+    private void jButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLoginMouseClicked
         
         //schauen ob username und passwort zusammenpasst
         InputChecker inputcheckerLogin = new InputChecker();
         try {
             if(inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jPasswordFieldPassword.getText())){
             //neue datei erstellen
-                //to do !!!!auf user zuweisen!!!
-                WriteInTxtFile wtxtf = new WriteInTxtFile();
-                wtxtf.schreibenInUserList(null,null,null);
-                
+                //to do !!!!auf user zuweisen!!!                
                 new ListScreen().setVisible(true);
                 dispose();
             }else{
@@ -160,14 +152,14 @@ public class Login extends javax.swing.JFrame{
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
         
         
         
-        
-    }//GEN-LAST:event_jButtonRegister1MouseClicked
+    }//GEN-LAST:event_jButtonLoginMouseClicked
 
-    private void jButtonRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegister1ActionPerformed
-    }//GEN-LAST:event_jButtonRegister1ActionPerformed
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+    }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
         Register registerScreen = new Register();
@@ -214,8 +206,8 @@ public class Login extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFAQ;
+    private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonRegister;
-    private javax.swing.JButton jButtonRegister1;
     private javax.swing.JLabel jLabelPasswort;
     private javax.swing.JLabel jLabelUser;
     private javax.swing.JPasswordField jPasswordFieldPassword;
