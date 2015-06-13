@@ -1,9 +1,6 @@
 datei einem user anheften
 
-user speichern(wenn möglich?)
+löschen + bearbeiten dass es richtig funktioniert
 
-tabelle ordentlich darstellen
-
-loeschen von eintraegen(löscht eine zeile zu spät + schreibt unten dran nur!)
 
 Richtige Dateien(pfad!) in richtige methoden!

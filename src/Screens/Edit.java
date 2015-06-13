@@ -206,17 +206,14 @@ public class Edit extends javax.swing.JFrame {
 
     private void jButtonDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteMouseClicked
         
-        EditAndDelete editdelete= new EditAndDelete();
-        try {
-            editdelete.DeleteForAdmin(jTextFieldNumber.getText());
-        } catch (IOException ex) {
-            Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         
        
     }//GEN-LAST:event_jButtonDeleteMouseClicked
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+       
+        
         dispose();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
@@ -234,6 +231,13 @@ public class Edit extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEditActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+       EditAndDelete editdelete= new EditAndDelete();
+        try {
+            editdelete.DeleteForAdmin(jTextFieldNumber.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         dispose();
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 

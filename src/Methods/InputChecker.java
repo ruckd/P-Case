@@ -19,6 +19,7 @@ public class InputChecker extends ReadTxtFile{
     private String usernameChecked;
     public InputChecker(){
     }
+   
     public InputChecker(String usernameChecked, String pwChecked) {
         this.usernameChecked = usernameChecked;
         this.pwChecked = pwChecked;
@@ -49,7 +50,7 @@ public class InputChecker extends ReadTxtFile{
 	}
     public boolean userNameSame(String usernameString) throws IOException{
       boolean bool1=false;
-      BufferedReader brUsernameSame = new BufferedReader(new FileReader(super.path + super.path2 +"adminList.txt"));
+      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt"));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();
           String lineString = brUsernameSame.readLine();
@@ -75,7 +76,7 @@ public class InputChecker extends ReadTxtFile{
     }
     public boolean usernamePasswordCheckerSame(String username,String password) throws IOException{
         boolean bool1=false;
-      BufferedReader brUsernameSame = new BufferedReader(new FileReader(super.path + super.path2 +"adminList.txt"));
+      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt"));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();
           String lineString = brUsernameSame.readLine();
@@ -102,7 +103,7 @@ public class InputChecker extends ReadTxtFile{
       }
         return bool1;
     }
-
+    
 }
     
     

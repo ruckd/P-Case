@@ -5,14 +5,15 @@
  */
 package Screens;
 
+import Methods.FileToUser;
 import Methods.InputChecker;
 import Methods.TXTReader;
 import Methods.WriteInTxtFile;
 import java.io.IOException;
+import java.nio.file.attribute.FileTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import p_case.NormalUser;
 
 /**
  *
@@ -169,9 +170,7 @@ public class Register extends javax.swing.JFrame {
 
     private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked
     
-    //neuen User erstellen
-        
-       // NormalUser neuerUser = new NormalUser(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText());
+    
     //nachschauen ob username bereits vergeben
         InputChecker ipchecker= new InputChecker();
         try {
@@ -183,7 +182,9 @@ public class Register extends javax.swing.JFrame {
         WriteInTxtFile registerNewUser = new WriteInTxtFile();
         registerNewUser.schreibenInAdminList(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText(),jPasswordFieldPasswordCheck.getText());
         try {
-            registerNewUser.writeNewUserFile();
+            FileToUser ftu = new FileToUser();
+            ftu.newFileForUser();
+   
         } catch (IOException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }

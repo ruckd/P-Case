@@ -52,7 +52,7 @@
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="jButtonFAQ" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButtonRegister1" min="-2" max="-2" attributes="0"/>
+              <Component id="jButtonLogin" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -76,7 +76,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonFAQ" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRegister" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonRegister1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonLogin" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
@@ -125,13 +125,13 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonRegisterMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonRegister1">
+    <Component class="javax.swing.JButton" name="jButtonLogin">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonRegister1MouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegister1ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonLoginMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLoginActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPasswordFieldPassword">

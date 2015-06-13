@@ -25,53 +25,69 @@ public class ReadTxtFile extends WriteInTxtFile{
     public String[][] getTextArray(){
       return content;  
     }
-    
-    
-    
-       
-    public void FileReaderUser(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
+    public void FileReaderUser(int SpecificUserId, javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort,javax.swing.JTextArea jTextAreaDomain) throws FileNotFoundException, IOException{
 
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\user"+ SpecificUserId+".txt"));
         try {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb1 = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            StringBuilder sb3 = new StringBuilder();
+            StringBuilder sb4 = new StringBuilder();
             String line = brTest.readLine();
                 while (line != null) {
-                    for(int i = 0;i<4;i++){
-                        sb.append(line);
-                        sb.append("-");
+                    sb1.append(line);
                         line = brTest.readLine();
-                    }
-                    sb.append("\n");
+                    sb2.append(line);
+                        line = brTest.readLine();
+                    sb3.append(line);
+                        line = brTest.readLine();
+                    sb4.append(line);  
+                        line = brTest.readLine();
+
+                    sb1.append("\n");
+                    sb2.append("\n");
+                    sb3.append("\n");
+                    sb4.append("\n");
                 }
-            jTextArea.setText(jTextArea.getText() +sb.toString());
+            jTextAreaNummer.setText(jTextAreaNummer.getText() +sb1.toString());
+            jTextAreaBenutzername.setText(jTextAreaBenutzername.getText() +sb2.toString());
+            jTextAreaPasswort.setText(jTextAreaPasswort.getText() +sb3.toString());
+            jTextAreaDomain.setText(jTextAreaDomain.getText() +sb4.toString());
         
     } finally {
         brTest.close();
     }
 }
-    public void FileReaderAdmin(javax.swing.JTextArea jTextArea) throws FileNotFoundException, IOException{
+    public void FileReaderAdmin(javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort) throws FileNotFoundException, IOException{
 
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt"));
         try {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb1 = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            StringBuilder sb3 = new StringBuilder();
+            
+            
             String line = brTest.readLine();
                 while (line != null) {
-                    
                     for(int i = 0;i<3;i++){
-                        sb.append(line);
-                        sb.append("-");
+                        sb1.append(line);
                         line = brTest.readLine();
+                    sb2.append(line);
+                        line = brTest.readLine();
+                    sb3.append(line);
+                        line = brTest.readLine();
+
+                    sb1.append("\n");
+                    sb2.append("\n");
+                    sb3.append("\n");
                     }
-                    sb.append("\n");
                 }
-            jTextArea.setText(jTextArea.getText() +sb.toString());
-        
+                jTextAreaNummer.setText(jTextAreaNummer.getText() +sb1.toString());
+                jTextAreaBenutzername.setText(jTextAreaBenutzername.getText() +sb2.toString());
+                jTextAreaPasswort.setText(jTextAreaPasswort.getText() +sb3.toString());        
     } finally {
         brTest.close();
     }
 }
-
-    //code zum lesen
-        //    ReadTxtFile def = new ReadTxtFile();
-        //    def.Filereaderexample();    
+    
 }

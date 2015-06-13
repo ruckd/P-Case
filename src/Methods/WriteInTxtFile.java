@@ -5,15 +5,14 @@
  */
 package Methods;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Field;
 import javax.swing.JOptionPane;
-import p_case.NormalUser;
+import javax.swing.text.DefaultStyledDocument;
 
 /**
  *
@@ -24,7 +23,7 @@ public class WriteInTxtFile{
     
     int countUser;
     String path = System.getProperty("user.dir");
-    String path2 = "/src/resources/";
+    String path2 = File.pathSeparator+"resources"+File.pathSeparator;
     Writer fw = null;
     File file;
 
@@ -41,22 +40,33 @@ public class WriteInTxtFile{
                     
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     //FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
-                    FileWriter fileW = new FileWriter (path + path2 + "adminList2.txt",true);
+                    FileWriter fileW = new FileWriter ("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList2.txt",true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
                     
-                    String domain = jTextFielddomain;
-                    String username =jTextFieldUsername;
-                    String password = jTextFieldPassword;
-                    b.write(countUser + "\n" + username + "\n" + password + "\n" + domain + "\n");
+                    
+                    
+                     //??????????????????
+                            
+                            FileToUser ftu1=new FileToUser();
+                            int a = ftu1.getEintraegeCount(countUser);
+                            b.write(a);
+                   
+                            
+                    b.newLine();
+                    b.write(jTextFieldUsername);
+                    b.newLine();
+                    b.write(jTextFieldPassword);
+                    b.newLine();
+                    b.write(jTextFielddomain);
+                    b.newLine();
 
                     //schließen
                     b.close();
             //wenn datei nicht existiert wird sie hier erstellt
                 }else{
-                    writeNewUserFile();
-                    countUser++;
+                    
                 }
 
         }catch(IOException e){
@@ -70,25 +80,22 @@ public class WriteInTxtFile{
             }
         }    
     }
-    public void writeNewUserFile() throws IOException{
-        fw = new FileWriter(path + path2 + "user"+countUser+".txt");
-    }
     public void schreibenInAdminList(String jTextFieldUsername,String jPasswordFieldPassword,String jPasswordFieldPasswordCheck) {
         //neuen leeren writer erstellen
         Writer fw = null;
-        InputChecker inputCheck = new InputChecker("a","b");
+        InputChecker inputCheck = new InputChecker("","");
         try{
             
-                File file = new File(path + path2 + "adminList.txt");
+                File file = new File("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList3.txt");
             //wenn es die datei bereits gibt mache das:
                 if (file.exists()) {
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                    FileWriter fileW = new FileWriter (path + path2 + "adminList.txt",true);
+                    FileWriter fileW = new FileWriter ("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList3.txt",true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
+
                     
-                  
                     if(inputCheck.userNameSame(jTextFieldUsername)==true){
                         JOptionPane.showMessageDialog(null, "Dieser Username existiert bereits!");
                     }else{
@@ -98,11 +105,20 @@ public class WriteInTxtFile{
                         if(inputCheck.passwordChecker(jPasswordFieldPassword)!=true){
                             JOptionPane.showMessageDialog(null, "Bitte benutzen Sie ein sicheres Passwort!");   
                         }else{
-                            String usernameString = jTextFieldUsername;
-                            String pwString = jPasswordFieldPassword;
-                            b.write(usernameString);
+                            
+                            //??????????????????
+                            
+                            FileToUser ftu1=new FileToUser();
+                            int a =ftu1.getAllUserCount() + 1;
+                            b.write(a);
+                            
+                            
+                            
+                            
                             b.newLine();
-                            b.write(pwString);
+                            b.write(jTextFieldUsername);
+                            b.newLine();
+                            b.write(jPasswordFieldPassword);
                             b.newLine();
                             JOptionPane.showMessageDialog(null,"Sie haben sich erfolgreich registriert!");
                         }
@@ -114,7 +130,7 @@ public class WriteInTxtFile{
                     }
             //wenn datei nicht existiert wird sie hier erstellt
                 }else{
-                    fw = new FileWriter(path + path2 + "adminList.txt");
+                    JOptionPane.showMessageDialog(null,"Die Adminlistendatei wurde gelöscht oder verschoben und kann nicht gefunden werden!");
                 }
 
         }catch(IOException e){
