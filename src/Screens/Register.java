@@ -55,6 +55,7 @@ public class Register extends javax.swing.JFrame {
         jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("P_CASE REGISTRIEREN");
 
         jPanel1.setBackground(new java.awt.Color(91, 91, 91));
 
