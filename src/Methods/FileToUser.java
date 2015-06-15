@@ -32,17 +32,13 @@ public class FileToUser {
         ReadTxtFile rtxtf = new ReadTxtFile();
         rtxtf.FileReaderAdmin(jTextAreaNummer, jTextAreaBenutzername, jTextAreaPasswort);
     }    
-
-    
     public int getAllUserCount() throws FileNotFoundException, IOException{
         BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
       int lineCount = 1;
         String line = brTest.readLine();
                 while (line != null) {
-                
                         line = brTest.readLine();
                         lineCount++;
-                    
                 }    
                 UserCount = lineCount/3;
                 return UserCount;
@@ -65,18 +61,14 @@ public class FileToUser {
         return usId;
     }
     public int getEintraegeCount(int UseriD) throws FileNotFoundException, IOException{
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt"));
+        int lineCount = 1;
         String line = brTest.readLine();
                 while (line != null) {
-                    for(int i = 0;i<3;i++){
-                        brTest.readLine();
-                        brTest.readLine();
-                        brTest.readLine();
-                        brTest.readLine();
                         line = brTest.readLine();
-                        EintraegeCount = EintraegeCount+1;
-                    }
+                        lineCount++;    
                 }      
+                EintraegeCount = lineCount/4;
                 return EintraegeCount;
     }
     public void newFileForUser() throws FileNotFoundException, IOException{

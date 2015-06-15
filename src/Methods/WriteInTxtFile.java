@@ -34,7 +34,7 @@ public class WriteInTxtFile{
     public void schreibenInUserList(String jTextFieldUsername,String jTextFieldPassword,String jTextFielddomain) {
        try{
             
-                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt");
+                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
             //wenn es die datei bereits gibt mache das:
                 if (file.exists()) {
                     
@@ -44,16 +44,9 @@ public class WriteInTxtFile{
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
-                    
-                    
-                    
-                     //??????????????????
-                            
-                            FileToUser ftu1=new FileToUser();
-                            int a = ftu1.getEintraegeCount(countUser);
-                            b.write(a);
-                   
-                            
+                    FileToUser ftu1=new FileToUser();
+                    b.newLine();
+                    b.write(""+ftu1.getEintraegeCount(countUser));        
                     b.newLine();
                     b.write(jTextFieldUsername);
                     b.newLine();
@@ -83,7 +76,7 @@ public class WriteInTxtFile{
     public void schreibenInAdminList(String jTextFieldUsername,String jPasswordFieldPassword,String jPasswordFieldPasswordCheck) {
         //neuen leeren writer erstellen
         Writer fw = null;
-        InputChecker inputCheck = new InputChecker("","");
+        InputChecker inputCheck = new InputChecker();
         try{
             
                 File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
@@ -94,8 +87,6 @@ public class WriteInTxtFile{
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
-
-                    
                     if(inputCheck.userNameSame(jTextFieldUsername)==true){
                         JOptionPane.showMessageDialog(null, "Dieser Username existiert bereits!");
                     }else{
@@ -104,10 +95,7 @@ public class WriteInTxtFile{
                         //checken ob passwort "unsicher" ist
                         if(inputCheck.passwordChecker(jPasswordFieldPassword)!=true){
                             JOptionPane.showMessageDialog(null, "Bitte benutzen Sie ein sicheres Passwort!");   
-                        }else{
-                            
-                            //??????????????????
-                            
+                        }else{                                                       
                             FileToUser ftu1=new FileToUser();
                             b.newLine();
                             b.write(""+ftu1.getAllUserCount());

@@ -19,11 +19,6 @@ public class InputChecker extends ReadTxtFile{
     private String usernameChecked;
     public InputChecker(){
     }
-   
-    public InputChecker(String usernameChecked, String pwChecked) {
-        this.usernameChecked = usernameChecked;
-        this.pwChecked = pwChecked;
-    }
     public boolean passwordChecker(String password) {
 		int anzahlKleinBuchstaben = 0;
 		int anzahlGrossBuchstaben = 0;

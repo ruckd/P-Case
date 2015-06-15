@@ -98,18 +98,23 @@ public class ListScreen extends javax.swing.JFrame {
             }
         });
 
+        jTextAreaBenutzername.setEditable(false);
         jTextAreaBenutzername.setColumns(20);
         jTextAreaBenutzername.setRows(5);
         jScrollPane2.setViewportView(jTextAreaBenutzername);
+        jTextAreaBenutzername.getAccessibleContext().setAccessibleParent(null);
 
+        jTextAreaPasswort.setEditable(false);
         jTextAreaPasswort.setColumns(20);
         jTextAreaPasswort.setRows(5);
         jScrollPane4.setViewportView(jTextAreaPasswort);
 
+        jTextAreaDomain.setEditable(false);
         jTextAreaDomain.setColumns(20);
         jTextAreaDomain.setRows(5);
         jScrollPane5.setViewportView(jTextAreaDomain);
 
+        jTextAreaNummer.setEditable(false);
         jTextAreaNummer.setColumns(20);
         jTextAreaNummer.setRows(5);
         jScrollPane6.setViewportView(jTextAreaNummer);
@@ -141,6 +146,7 @@ public class ListScreen extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonLogout)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabelNummer)
                                     .addGroup(layout.createSequentialGroup()

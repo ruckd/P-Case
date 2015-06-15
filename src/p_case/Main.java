@@ -23,9 +23,8 @@ import java.io.IOException;
 public class Main{
     
     public static void main(String args[]) throws IOException {
-       // new Login().setVisible(true);    
-        FileToUser abc =  new FileToUser();
-        System.out.println(abc.getAllUserCount());
+        new Login().setVisible(true);    
+
         
     }   
 }
