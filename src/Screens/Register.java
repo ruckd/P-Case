@@ -7,7 +7,6 @@ package Screens;
 
 import Methods.FileToUser;
 import Methods.InputChecker;
-import Methods.TXTReader;
 import Methods.WriteInTxtFile;
 import java.io.IOException;
 import java.nio.file.attribute.FileTime;
@@ -158,8 +157,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsernameRegisterActionPerformed
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
-        TXTReader reader = new TXTReader();
-        JOptionPane.showMessageDialog(null, reader.getFAQs());
+
     }//GEN-LAST:event_jButtonHelpMouseClicked
 
     private void jButtonCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelMouseClicked

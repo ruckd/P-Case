@@ -5,14 +5,19 @@
  */
 package Methods;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -27,120 +32,129 @@ public class EditAndDelete {
     }
     public void DeleteForUser(String iD) throws IOException{
 
-        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
-        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
-            //schauen ob datei existiert
-            if (Files.exists(path)){
-                Scanner scanner = new Scanner(path);
-                    while(scanner.hasNextLine()) {
-                        String line = scanner.nextLine();
-                        nooverWrite.write(line);
-                        
-                        //schreibt eine zeile zu spät! + schreibt nur unten dran!
-                        if(line == null ? iD == null : line.equals(iD)){
-                            scanner.nextLine();
-                            scanner.nextLine();
-                            scanner.nextLine();
-                          //scanner.nextLine();
-                            nooverWrite.write("");
-                            nooverWrite.newLine();
-                            nooverWrite.write("");
-                            nooverWrite.newLine();
-                            nooverWrite.write("");        
-                        }
-                        nooverWrite.newLine();   
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+                 if(file.exists()){
+        BufferedReader brTest = new BufferedReader(new FileReader(file));
+        
+        ArrayList<String> userData = new ArrayList<String>();              
+        String line = brTest.readLine();
+            while (line != null) { 
+                userData.add(line);
+                line=brTest.readLine();
+            }
+                int zuLoeschendeNummer=userData.indexOf(iD);
+                for(int i =0;i<4;i++){
+                    userData.remove(zuLoeschendeNummer);
+                }
+                    int groesseListe = userData.size();
+                    for(int i = 0;i*4<groesseListe;i++){
+                        String abc = Integer.toString(i);
+                        int dreierZaehler = i*4;
+                        userData.set(dreierZaehler,abc);
                     }
-                 
-                scanner.close();
-                nooverWrite.close();
+                    BufferedWriter noOverWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,false)));
+                    //schreiben der liste!!
+                    noOverWriter.write(userData.toString());
+                    noOverWriter.close();
             }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
+                 }
             }
     
         
     }
     public void EditForUser(String iD,String username,String password,String domain) throws FileNotFoundException, IOException    {
         
-        BufferedWriter noOverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
-        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
-            //schauen ob datei existiert
-            if (Files.exists(path)){
-                Scanner scanner = new Scanner(path);
-                    while(scanner.hasNextLine()) {
-                        String line = scanner.nextLine();
-                        noOverWrite.write(line);
-                        if(line == null ? iD == null : line.equals(iD)){
-                            scanner.nextLine();
-                            scanner.nextLine();
-                            scanner.nextLine();
-                            noOverWrite.newLine();
-                            noOverWrite.write(username);        
-                            noOverWrite.newLine();
-                            noOverWrite.write(password);  
-                            noOverWrite.newLine();
-                            noOverWrite.write(domain);
-                        }
-                        noOverWrite.newLine();
-                    }
-            scanner.close();
-                noOverWrite.close();
-            }else{
+        
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+                BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",true)));
+                BufferedReader brTest = new BufferedReader(new FileReader(file));
+                ArrayList<String> userData = new ArrayList<String>();
+                        
+                        String line = brTest.readLine();
+                    while (line != null) { 
+                            userData.add(line);
+                            line=brTest.readLine();
+                            }
+                        int zuLoeschendeNummer=userData.indexOf(iD);
+                        userData.set(zuLoeschendeNummer+1, username);
+                        userData.set(zuLoeschendeNummer+2, password);
+                        userData.set(zuLoeschendeNummer+3, domain);
+                       
+                        
+                        BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",false)));
+                
+                        overWrite.write(userData.toString());
+                        overWrite.close();
+                        
+                        }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
             }
+            
     }
     public void DeleteForAdmin(String iD) throws IOException{
- 
-        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
-        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
-            //schauen ob datei existiert
-            if (Files.exists(path)){
-                Scanner scanner = new Scanner(path);
-                    while(scanner.hasNextLine()) {
-                        String line = scanner.nextLine();
-                        nooverWrite.write(line);
-                        //schreibt eine zeile zu spät! + schreibt nur unten dran!
-                        if(line == null ? iD == null : line.equals(iD)){
-                            scanner.nextLine();
-                            scanner.nextLine();
-                            nooverWrite.write("");
-                            nooverWrite.newLine();
-                        }
-                        nooverWrite.newLine();   
+
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+        BufferedReader brTest = new BufferedReader(new FileReader(file));
+        
+        ArrayList<String> userData = new ArrayList<String>();              
+        String line = brTest.readLine();
+            while (line != null) { 
+                userData.add(line);
+                line=brTest.readLine();
+            }
+                int zuLoeschendeNummer=userData.indexOf(iD);
+                for(int i =0;i<3;i++){
+                    userData.remove(zuLoeschendeNummer);
+                }
+                    int groesseListe = userData.size();
+                    for(int i = 0;i*3<groesseListe;i++){
+                        String abc = Integer.toString(i);
+                        int dreierZaehler = i*3;
+                        userData.set(dreierZaehler,abc);
                     }
-                scanner.close();
-                nooverWrite.close();
+                    BufferedWriter noOverWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,false)));
+                    //schreiben der liste!!
+                    noOverWriter.write(userData.toString());
+                    noOverWriter.close();
             }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
-            }
-        }
+                 }
+            
+    }    
     public void EditForAdmin(String iD,String username,String password) throws FileNotFoundException, IOException{
 
-        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
-        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
-            //schauen ob datei existiert
-            if (Files.exists(path)){
-                Scanner scanner = new Scanner(path);
-                    while(scanner.hasNextLine()) {
-                        String line = scanner.nextLine();
-                        nooverWrite.write(line);
-                        if(line == null ? iD == null : line.equals(iD)){
-                            scanner.nextLine();
-                            scanner.nextLine();
-                            scanner.nextLine();
-                            nooverWrite.newLine();
-                            nooverWrite.write(username);        
-                            nooverWrite.newLine();
-                            nooverWrite.write(password);        
-                        }
-                        nooverWrite.newLine();
-                    }
-                scanner.close();
-                nooverWrite.close();
-            }else{
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+                BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",true)));
+                BufferedReader brTest = new BufferedReader(new FileReader(file));
+                ArrayList<String> userData = new ArrayList<String>();
+                        
+                        String line = brTest.readLine();
+                    while (line != null) { 
+                            userData.add(line);
+                            line=brTest.readLine();
+                            }
+                        int zuLoeschendeNummer=userData.indexOf(iD);
+                        userData.set(zuLoeschendeNummer+1, username);
+                        userData.set(zuLoeschendeNummer+2, password);
+                        BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",false)));
+                
+                        overWrite.write(userData.toString());
+                        overWrite.close();
+                        
+                        }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
             }
+            
     }
-  
 }
 
         

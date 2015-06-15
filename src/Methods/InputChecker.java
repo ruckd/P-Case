@@ -6,8 +6,10 @@
 package Methods;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import javax.swing.JOptionPane;
 
 /**
@@ -45,7 +47,12 @@ public class InputChecker extends ReadTxtFile{
 	}
     public boolean userNameSame(String usernameString) throws IOException{
       boolean bool1=false;
-      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
+      URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+      BufferedReader brUsernameSame = new BufferedReader(new FileReader(file));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();
           String lineString = brUsernameSame.readLine();
@@ -71,7 +78,12 @@ public class InputChecker extends ReadTxtFile{
     }
     public boolean usernamePasswordCheckerSame(String username,String password) throws IOException{
         boolean bool1=false;
-      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+      BufferedReader brUsernameSame = new BufferedReader(new FileReader(file));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();
           String lineString = brUsernameSame.readLine();

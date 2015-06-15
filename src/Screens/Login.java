@@ -1,7 +1,8 @@
 package Screens;
 import Methods.InputChecker;
-import Methods.TXTReader;
+import Methods.ReadTxtFile;
 import Methods.WriteInTxtFile;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -132,8 +133,14 @@ public class Login extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonFAQMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFAQMouseClicked
-       TXTReader reader = new TXTReader();
-        JOptionPane.showMessageDialog(null, reader.getFAQs());
+      ReadTxtFile abc = new ReadTxtFile();
+        try {
+            abc.FileReaderFAQ();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //TXTReader reader = new TXTReader();
+      //  JOptionPane.showMessageDialog(null, reader.getFAQs());
     }//GEN-LAST:event_jButtonFAQMouseClicked
 
     private void jButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLoginMouseClicked

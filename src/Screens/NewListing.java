@@ -6,7 +6,6 @@
 package Screens;
 
 import p_case.*;
-import Methods.TXTReader;
 import Methods.WriteInTxtFile;
 import javax.swing.JOptionPane;
 
@@ -155,8 +154,7 @@ public class NewListing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
-        TXTReader reader = new TXTReader();
-        JOptionPane.showMessageDialog(null, reader.getFAQs());
+
 
     }//GEN-LAST:event_jButtonHelpMouseClicked
 

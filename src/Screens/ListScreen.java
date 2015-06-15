@@ -7,7 +7,6 @@ package Screens;
 
 import Methods.ReadTxtFile;
 import p_case.*;
-import Methods.TXTReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +38,6 @@ public class ListScreen extends javax.swing.JFrame {
         jButtonLogout = new javax.swing.JButton();
         jButtonNewListing = new javax.swing.JButton();
         jButtonChange_Delete = new javax.swing.JButton();
-        jButtonHelp = new javax.swing.JButton();
         jButtonTest = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaBenutzername = new javax.swing.JTextArea();
@@ -53,6 +51,7 @@ public class ListScreen extends javax.swing.JFrame {
         jLabelBenutzername = new javax.swing.JLabel();
         jLabelPasswort = new javax.swing.JLabel();
         jLabelDomain = new javax.swing.JLabel();
+        jButtonHelp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,13 +75,6 @@ public class ListScreen extends javax.swing.JFrame {
         jButtonChange_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonChange_DeleteMouseClicked(evt);
-            }
-        });
-
-        jButtonHelp.setText("?");
-        jButtonHelp.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonHelpMouseClicked(evt);
             }
         });
 
@@ -127,6 +119,8 @@ public class ListScreen extends javax.swing.JFrame {
 
         jLabelDomain.setText("Domain");
 
+        jButtonHelp.setText("?");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,10 +132,6 @@ public class ListScreen extends javax.swing.JFrame {
                         .addComponent(jButtonNewListing)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 676, Short.MAX_VALUE)
                         .addComponent(jButtonChange_Delete))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelU_name, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonHelp))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonLogout)
@@ -167,7 +157,11 @@ public class ListScreen extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabelDomain)
                                         .addGap(8, 8, 8)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelU_name, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonHelp)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -207,10 +201,6 @@ public class ListScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
-        TXTReader reader = new TXTReader();
-        JOptionPane.showMessageDialog(null, reader.getFAQs());    }//GEN-LAST:event_jButtonHelpMouseClicked
 
     private void jButtonChange_DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonChange_DeleteMouseClicked
         

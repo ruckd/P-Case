@@ -23,10 +23,8 @@ public class WriteInTxtFile{
     
     
     int countUser;
-    String path = System.getProperty("user.dir");
-    String path2 = File.pathSeparator+"resources"+File.pathSeparator;
     Writer fw = null;
-    File file;
+    
 
 
 
@@ -36,12 +34,8 @@ public class WriteInTxtFile{
        try{
             URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
             if(testURL != null){
-                 File testFile =  new File(testURL.toString());
-            }
-        
-                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
-            //wenn es die datei bereits gibt mache das:
-                if (file.exists()) {
+                 File file =  new File(testURL.toString());
+            
                     
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     //FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
@@ -84,9 +78,11 @@ public class WriteInTxtFile{
         InputChecker inputCheck = new InputChecker();
         try{
             
-                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
-            //wenn es die datei bereits gibt mache das:
-                if (file.exists()) {
+            
+            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
                     //buffered writer, der schreibt.
@@ -134,8 +130,13 @@ public class WriteInTxtFile{
     }   
     public void schreibenInAdminListNoCheck(String iD,String username,String password) throws IOException{
         Writer fw = null;
-        try{            
-                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
+        try{       
+            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+                
                 //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                 FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
                 //buffered writer, der schreibt.
@@ -157,8 +158,16 @@ public class WriteInTxtFile{
     }
     public void schreibenInAdminListNoCheck(String schreib){
         Writer fw = null;
-        try{            
-                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
+        try{       
+            
+            
+            
+            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+                
                 //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                 FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
                 //buffered writer, der schreibt.
@@ -179,9 +188,5 @@ public class WriteInTxtFile{
         }
     }
 
-
-//code zum schreiben
-        //    WriteInTxtFile abc = new WriteInTxtFile();
-        //    abc.schreiben();
 
 }

@@ -6,11 +6,13 @@
 package Methods;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.net.URL;
 import java.nio.file.Path;
 
 /**
@@ -33,7 +35,12 @@ public class FileToUser {
         rtxtf.FileReaderAdmin(jTextAreaNummer, jTextAreaBenutzername, jTextAreaPasswort);
     }    
     public int getAllUserCount() throws FileNotFoundException, IOException{
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+        BufferedReader brTest = new BufferedReader(new FileReader(file));
       int lineCount = 1;
         String line = brTest.readLine();
                 while (line != null) {
@@ -46,7 +53,12 @@ public class FileToUser {
     public int getSpecificUseriD(String Username) throws FileNotFoundException, IOException{
         
     
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+        BufferedReader brTest = new BufferedReader(new FileReader(file));
         String line = brTest.readLine();
             
         int a = getAllUserCount()*3;
@@ -61,7 +73,12 @@ public class FileToUser {
         return usId;
     }
     public int getEintraegeCount(int UseriD) throws FileNotFoundException, IOException{
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt"));
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+        BufferedReader brTest = new BufferedReader(new FileReader(file));
         int lineCount = 1;
         String line = brTest.readLine();
                 while (line != null) {
@@ -75,7 +92,12 @@ public class FileToUser {
         getAllUserCount();
         for(int i = 0;i<UserCount;i++){
             int newUserCount = UserCount+1;
-        Writer userWriter = new FileWriter("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt");
+            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File file =  new File(testURL.toString());
+            }
+                File file =  new File(testURL.toString());
+        Writer userWriter = new FileWriter(file);
         }   
     }
     
