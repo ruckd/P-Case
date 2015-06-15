@@ -34,13 +34,13 @@ public class WriteInTxtFile{
     public void schreibenInUserList(String jTextFieldUsername,String jTextFieldPassword,String jTextFielddomain) {
        try{
             
-                File file = new File(path + path2 + "user" + countUser+".txt");
+                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt");
             //wenn es die datei bereits gibt mache das:
                 if (file.exists()) {
                     
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     //FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
-                    FileWriter fileW = new FileWriter ("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList2.txt",true);
+                    FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt",true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
@@ -86,11 +86,11 @@ public class WriteInTxtFile{
         InputChecker inputCheck = new InputChecker("","");
         try{
             
-                File file = new File("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList3.txt");
+                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
             //wenn es die datei bereits gibt mache das:
                 if (file.exists()) {
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                    FileWriter fileW = new FileWriter ("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList3.txt",true);
+                    FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
@@ -109,17 +109,12 @@ public class WriteInTxtFile{
                             //??????????????????
                             
                             FileToUser ftu1=new FileToUser();
-                            int a =ftu1.getAllUserCount() + 1;
-                            b.write(a);
-                            
-                            
-                            
-                            
+                            b.newLine();
+                            b.write(""+ftu1.getAllUserCount());
                             b.newLine();
                             b.write(jTextFieldUsername);
                             b.newLine();
                             b.write(jPasswordFieldPassword);
-                            b.newLine();
                             JOptionPane.showMessageDialog(null,"Sie haben sich erfolgreich registriert!");
                         }
                     }else{
@@ -147,9 +142,9 @@ public class WriteInTxtFile{
     public void schreibenInAdminListNoCheck(String iD,String username,String password) throws IOException{
         Writer fw = null;
         try{            
-                File file = new File(path + path2 + "adminList.txt");
+                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
                 //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                FileWriter fileW = new FileWriter (path + path2 + "adminList.txt",true);
+                FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
                 //buffered writer, der schreibt.
                 BufferedWriter b = new BufferedWriter (fileW);
                 //Text der geschrieben werden soll
@@ -170,9 +165,9 @@ public class WriteInTxtFile{
     public void schreibenInAdminListNoCheck(String schreib){
         Writer fw = null;
         try{            
-                File file = new File(path + path2 + "adminList.txt");
+                File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
                 //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                FileWriter fileW = new FileWriter (path + path2 + "adminList.txt",true);
+                FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
                 //buffered writer, der schreibt.
                 BufferedWriter b = new BufferedWriter (fileW);
                 //Text der geschrieben werden soll

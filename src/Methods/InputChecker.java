@@ -50,7 +50,7 @@ public class InputChecker extends ReadTxtFile{
 	}
     public boolean userNameSame(String usernameString) throws IOException{
       boolean bool1=false;
-      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt"));
+      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();
           String lineString = brUsernameSame.readLine();
@@ -76,7 +76,7 @@ public class InputChecker extends ReadTxtFile{
     }
     public boolean usernamePasswordCheckerSame(String username,String password) throws IOException{
         boolean bool1=false;
-      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt"));
+      BufferedReader brUsernameSame = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();
           String lineString = brUsernameSame.readLine();

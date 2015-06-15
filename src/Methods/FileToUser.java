@@ -35,23 +35,22 @@ public class FileToUser {
 
     
     public int getAllUserCount() throws FileNotFoundException, IOException{
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
+      int lineCount = 1;
         String line = brTest.readLine();
                 while (line != null) {
-                    for(int i = 0;i<3;i++){
-                        brTest.readLine();
-                        brTest.readLine();
-                        brTest.readLine();
+                
                         line = brTest.readLine();
-                        UserCount = UserCount+1;
-                    }
-                }      
+                        lineCount++;
+                    
+                }    
+                UserCount = lineCount/3;
                 return UserCount;
     }
     public int getSpecificUseriD(String Username) throws FileNotFoundException, IOException{
         
     
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
         String line = brTest.readLine();
             
         int a = getAllUserCount()*3;
@@ -66,7 +65,7 @@ public class FileToUser {
         return usId;
     }
     public int getEintraegeCount(int UseriD) throws FileNotFoundException, IOException{
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList2.txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
         String line = brTest.readLine();
                 while (line != null) {
                     for(int i = 0;i<3;i++){
@@ -84,7 +83,7 @@ public class FileToUser {
         getAllUserCount();
         for(int i = 0;i<UserCount;i++){
             int newUserCount = UserCount+1;
-        Writer userWriter = new FileWriter("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\user"+newUserCount+".txt");
+        Writer userWriter = new FileWriter("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt");
         }   
     }
     

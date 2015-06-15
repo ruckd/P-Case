@@ -22,18 +22,13 @@ import javax.swing.JOptionPane;
  */
 public class EditAndDelete {
     
-    String path5 = System.getProperty("user.dir");
-    String path6 = "/src/resources/";
-    
-    public String getPath(){
-        return path5 + path6;
-    }
+
     public EditAndDelete(){
     }
     public void DeleteForUser(String iD) throws IOException{
 
-        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt", true)));
-        Path path = Paths.get("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt");    
+        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
+        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
             //schauen ob datei existiert
             if (Files.exists(path)){
                 Scanner scanner = new Scanner(path);
@@ -66,37 +61,37 @@ public class EditAndDelete {
     }
     public void EditForUser(String iD,String username,String password,String domain) throws FileNotFoundException, IOException    {
         
-        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt", true)));
-        Path path = Paths.get("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt");    
+        BufferedWriter noOverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
+        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
             //schauen ob datei existiert
             if (Files.exists(path)){
                 Scanner scanner = new Scanner(path);
                     while(scanner.hasNextLine()) {
                         String line = scanner.nextLine();
-                        nooverWrite.write(line);
+                        noOverWrite.write(line);
                         if(line == null ? iD == null : line.equals(iD)){
                             scanner.nextLine();
                             scanner.nextLine();
                             scanner.nextLine();
-                            nooverWrite.newLine();
-                            nooverWrite.write(username);        
-                            nooverWrite.newLine();
-                            nooverWrite.write(password);  
-                            nooverWrite.newLine();
-                            nooverWrite.write(domain);
+                            noOverWrite.newLine();
+                            noOverWrite.write(username);        
+                            noOverWrite.newLine();
+                            noOverWrite.write(password);  
+                            noOverWrite.newLine();
+                            noOverWrite.write(domain);
                         }
-                        nooverWrite.newLine();
+                        noOverWrite.newLine();
                     }
             scanner.close();
-                nooverWrite.close();
+                noOverWrite.close();
             }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
             }
     }
     public void DeleteForAdmin(String iD) throws IOException{
  
-        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt", true)));
-        Path path = Paths.get("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt");    
+        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
+        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
             //schauen ob datei existiert
             if (Files.exists(path)){
                 Scanner scanner = new Scanner(path);
@@ -120,8 +115,8 @@ public class EditAndDelete {
         }
     public void EditForAdmin(String iD,String username,String password) throws FileNotFoundException, IOException{
 
-        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt", true)));
-        Path path = Paths.get("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList.txt");    
+        BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt", true)));
+        Path path = Paths.get("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");    
             //schauen ob datei existiert
             if (Files.exists(path)){
                 Scanner scanner = new Scanner(path);

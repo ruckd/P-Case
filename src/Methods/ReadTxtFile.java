@@ -17,17 +17,10 @@ import java.io.IOException;
  */
 public class ReadTxtFile extends WriteInTxtFile{
     
-    private String[][] content;
- 
     
-    
-    
-    public String[][] getTextArray(){
-      return content;  
-    }
     public void FileReaderUser(int SpecificUserId, javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort,javax.swing.JTextArea jTextAreaDomain) throws FileNotFoundException, IOException{
 
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\user"+ SpecificUserId+".txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt"));
         try {
             StringBuilder sb1 = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
@@ -60,7 +53,7 @@ public class ReadTxtFile extends WriteInTxtFile{
 }
     public void FileReaderAdmin(javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort) throws FileNotFoundException, IOException{
 
-        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\PROJECTWorkspace\\P-Case\\build\\classes\\resources\\adminList - Kopie (3).txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt"));
         try {
             StringBuilder sb1 = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
