@@ -24,16 +24,34 @@ public class FileToUser {
     int UserCount=1;
     int EintraegeCount=1;
     int UseriD=1;
+    String activeUser;
     
-    public void OpenUserFile(String Username, javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort,javax.swing.JTextArea jTextAreaDomain) throws IOException{
-        int SpecificUserId = getSpecificUseriD(Username);
-        ReadTxtFile rtxtf = new ReadTxtFile();
-        rtxtf.FileReaderUser(SpecificUserId,jTextAreaNummer,jTextAreaBenutzername,jTextAreaPasswort,jTextAreaDomain);
+    
+    
+
+    public void setActiveUser(String activeUser){
+        this.activeUser=activeUser;
     }
-    public void OpenAdminFile(javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort) throws IOException{
+    public String getActiveUser(){
+        return this.activeUser;
+    }
+   
+    public void OpenFile(String username,javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort,javax.swing.JTextArea jTextAreaDomain) throws IOException{
+        if(username.equals("admin")){
+            OpenAdminFile(jTextAreaNummer, jTextAreaBenutzername, jTextAreaPasswort);
+        }else{
+            OpenUserFile(username,jTextAreaNummer, jTextAreaBenutzername, jTextAreaPasswort, jTextAreaDomain);
+        }
+    }    
+        public void OpenUserFile(String username,javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort,javax.swing.JTextArea jTextAreaDomain) throws IOException{
+        ReadTxtFile rtxtf = new ReadTxtFile();
+        rtxtf.FileReaderUser(username,jTextAreaNummer,jTextAreaBenutzername,jTextAreaPasswort,jTextAreaDomain);
+    }
+        public void OpenAdminFile(javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort) throws IOException{
         ReadTxtFile rtxtf = new ReadTxtFile();
         rtxtf.FileReaderAdmin(jTextAreaNummer, jTextAreaBenutzername, jTextAreaPasswort);
     }    
+    
     public int getAllUserCount() throws FileNotFoundException, IOException{
         URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
             if(testURL != null){
@@ -50,30 +68,8 @@ public class FileToUser {
                 UserCount = lineCount/3;
                 return UserCount;
     }
-    public int getSpecificUseriD(String Username) throws FileNotFoundException, IOException{
-        
-    
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
-        BufferedReader brTest = new BufferedReader(new FileReader(file));
-        String line = brTest.readLine();
-            
-        int a = getAllUserCount()*3;
-        for(int i = 0;i<a;i++){
-
-             if(line == null ? Username != null : !line.equals(Username)){
-                    line = brTest.readLine();
-                    UseriD = UseriD+1;
-                    }
-        }
-        int usId = (UseriD-2)/3;
-        return usId;
-    }
-    public int getEintraegeCount(int UseriD) throws FileNotFoundException, IOException{
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+    public int getEintraegeCount(String username) throws FileNotFoundException, IOException{
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+username+".txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
             }
@@ -88,18 +84,16 @@ public class FileToUser {
                 EintraegeCount = lineCount/4;
                 return EintraegeCount;
     }
-    public void newFileForUser() throws FileNotFoundException, IOException{
-        getAllUserCount();
-        for(int i = 0;i<UserCount;i++){
-            int newUserCount = UserCount+1;
-            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+    
+    public void newFileForUser(String username) throws FileNotFoundException, IOException{
+            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+username+".txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
             }
                 File file =  new File(testURL.toString());
         Writer userWriter = new FileWriter(file);
         }   
-    }
+    
     
     
 }

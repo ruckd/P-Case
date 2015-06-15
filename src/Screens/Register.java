@@ -181,7 +181,7 @@ public class Register extends javax.swing.JFrame {
         registerNewUser.schreibenInAdminList(jTextFieldUsernameRegister.getText(),jPasswordFieldPasswordRegister.getText(),jPasswordFieldPasswordCheck.getText());
         try {
             FileToUser ftu = new FileToUser();
-            ftu.newFileForUser();
+            ftu.newFileForUser(jTextFieldUsernameRegister.getText());
    
         } catch (IOException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);

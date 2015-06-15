@@ -31,8 +31,8 @@ public class EditAndDelete {
     public EditAndDelete(){
     }
     public void DeleteForUser(String iD) throws IOException{
-
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+        FileToUser ftu = new FileToUser();
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+ftu.getActiveUser()+".txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
                  if(file.exists()){
@@ -56,7 +56,11 @@ public class EditAndDelete {
                     }
                     BufferedWriter noOverWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,false)));
                     //schreiben der liste!!
-                    noOverWriter.write(userData.toString());
+
+                    for(int i=0;i<groesseListe;i++){
+                        noOverWriter.write(userData.get(i));
+                        noOverWriter.write("\n");
+                    }
                     noOverWriter.close();
             }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
@@ -66,12 +70,10 @@ public class EditAndDelete {
         
     }
     public void EditForUser(String iD,String username,String password,String domain) throws FileNotFoundException, IOException    {
-        
-        
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+        FileToUser ftu = new FileToUser();
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+ftu.getActiveUser()+".txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
-                BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",true)));
                 BufferedReader brTest = new BufferedReader(new FileReader(file));
                 ArrayList<String> userData = new ArrayList<String>();
                         
@@ -121,7 +123,13 @@ public class EditAndDelete {
                     }
                     BufferedWriter noOverWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,false)));
                     //schreiben der liste!!
-                    noOverWriter.write(userData.toString());
+                    for(int i=0;i<groesseListe;i++){
+                        
+                        noOverWriter.write(userData.get(i));
+                        noOverWriter.write("\n");
+                        
+                    }
+                    
                     noOverWriter.close();
             }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
@@ -131,13 +139,16 @@ public class EditAndDelete {
     public void EditForAdmin(String iD,String username,String password) throws FileNotFoundException, IOException{
 
         URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
+        if(testURL != null){
+            
+            if(iD.equals("0")^username.equals("admin")){
+                JOptionPane.showMessageDialog(null,"Der Benutzername des Administrators admin kann nicht verändert werden!");
+            }else{
+                File file =  new File(testURL.toString());
                 BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",true)));
                 BufferedReader brTest = new BufferedReader(new FileReader(file));
                 ArrayList<String> userData = new ArrayList<String>();
-                        
-                        String line = brTest.readLine();
+                String line = brTest.readLine();
                     while (line != null) { 
                             userData.add(line);
                             line=brTest.readLine();
@@ -149,20 +160,9 @@ public class EditAndDelete {
                 
                         overWrite.write(userData.toString());
                         overWrite.close();
-                        
+            }
                         }else{
                 JOptionPane.showMessageDialog(null,"Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
             }
-            
-    }
+        }
 }
-
-        
-        
-    
-    
-    
-    
-    
-    
-

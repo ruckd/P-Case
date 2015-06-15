@@ -1,6 +1,0 @@
-datei einem user anheften
-
-löschen + bearbeiten dass es richtig funktioniert
-
-
-Richtige Dateien(pfad!) in richtige methoden!

@@ -20,9 +20,9 @@ import javax.swing.JOptionPane;
 public class ReadTxtFile extends WriteInTxtFile{
     
     
-    public void FileReaderUser(int SpecificUserId, javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort,javax.swing.JTextArea jTextAreaDomain) throws FileNotFoundException, IOException{
-
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+    public void FileReaderUser(String username, javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort,javax.swing.JTextArea jTextAreaDomain) throws FileNotFoundException, IOException{
+        
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+username+".txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
             }
@@ -73,9 +73,6 @@ public class ReadTxtFile extends WriteInTxtFile{
             StringBuilder sb1 = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
-            
-            
-            
             String line = brTest.readLine();
                 while (line != null) {
                     for(int i = 0;i<3;i++){

@@ -22,30 +22,24 @@ import javax.swing.text.DefaultStyledDocument;
 public class WriteInTxtFile{
     
     
-    int countUser;
+  
     Writer fw = null;
-    
 
-
-
-    
-    
     public void schreibenInUserList(String jTextFieldUsername,String jTextFieldPassword,String jTextFielddomain) {
-       try{
-            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+       FileToUser ftu1=new FileToUser();
+        try{
+            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+ftu1.getActiveUser()+".txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
-            
-                    
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     //FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
                     FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt",true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
-                    FileToUser ftu1=new FileToUser();
+                    
                     b.newLine();
-                    b.write(""+ftu1.getEintraegeCount(countUser));        
+                    b.write(ftu1.getEintraegeCount(ftu1.getActiveUser()));        
                     b.newLine();
                     b.write(jTextFieldUsername);
                     b.newLine();
@@ -84,7 +78,7 @@ public class WriteInTxtFile{
                  File file =  new File(testURL.toString());
             
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                    FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
+                    FileWriter fileW = new FileWriter (file,true);
                     //buffered writer, der schreibt.
                     BufferedWriter b = new BufferedWriter (fileW);
                     //Text der geschrieben werden soll
@@ -128,6 +122,10 @@ public class WriteInTxtFile{
             }
         }    
     }   
+    
+    
+    //wieso das untere???
+    
     public void schreibenInAdminListNoCheck(String iD,String username,String password) throws IOException{
         Writer fw = null;
         try{       
@@ -138,7 +136,7 @@ public class WriteInTxtFile{
                 File file =  new File(testURL.toString());
                 
                 //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
+                FileWriter fileW = new FileWriter (file,true);
                 //buffered writer, der schreibt.
                 BufferedWriter b = new BufferedWriter (fileW);
                 //Text der geschrieben werden soll
@@ -159,17 +157,13 @@ public class WriteInTxtFile{
     public void schreibenInAdminListNoCheck(String schreib){
         Writer fw = null;
         try{       
-            
-            
-            
             URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
             }
                 File file =  new File(testURL.toString());
-                
                 //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
-                FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt",true);
+                FileWriter fileW = new FileWriter (file,true);
                 //buffered writer, der schreibt.
                 BufferedWriter b = new BufferedWriter (fileW);
                 //Text der geschrieben werden soll
