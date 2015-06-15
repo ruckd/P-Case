@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.Field;
+import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultStyledDocument;
 
@@ -33,7 +34,11 @@ public class WriteInTxtFile{
     
     public void schreibenInUserList(String jTextFieldUsername,String jTextFieldPassword,String jTextFielddomain) {
        try{
-            
+            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+            if(testURL != null){
+                 File testFile =  new File(testURL.toString());
+            }
+        
                 File file = new File("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\adminList.txt");
             //wenn es die datei bereits gibt mache das:
                 if (file.exists()) {

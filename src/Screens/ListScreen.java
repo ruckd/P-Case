@@ -101,8 +101,8 @@ public class ListScreen extends javax.swing.JFrame {
         jTextAreaBenutzername.setEditable(false);
         jTextAreaBenutzername.setColumns(20);
         jTextAreaBenutzername.setRows(5);
+        jTextAreaBenutzername.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setViewportView(jTextAreaBenutzername);
-        jTextAreaBenutzername.getAccessibleContext().setAccessibleParent(null);
 
         jTextAreaPasswort.setEditable(false);
         jTextAreaPasswort.setColumns(20);
