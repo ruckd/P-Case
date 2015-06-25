@@ -14,11 +14,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -88,7 +84,7 @@ public class EditAndDelete {
                         userData.set(zuLoeschendeNummer+3, domain);
                        
                         
-                        BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",false)));
+                        BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(testURL.toString(),false)));
                 
                         overWrite.write(userData.toString());
                         overWrite.close();
@@ -145,7 +141,7 @@ public class EditAndDelete {
                 JOptionPane.showMessageDialog(null,"Der Benutzername des Administrators admin kann nicht verändert werden!");
             }else{
                 File file =  new File(testURL.toString());
-                BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",true)));
+                BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(testURL.toString(),true)));
                 BufferedReader brTest = new BufferedReader(new FileReader(file));
                 ArrayList<String> userData = new ArrayList<String>();
                 String line = brTest.readLine();
@@ -156,7 +152,7 @@ public class EditAndDelete {
                         int zuLoeschendeNummer=userData.indexOf(iD);
                         userData.set(zuLoeschendeNummer+1, username);
                         userData.set(zuLoeschendeNummer+2, password);
-                        BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\Simon\\Desktop\\Wirtschaftsinformatik\\2_Semester\\Programmieren 2\\netbeansWorkspace\\TestMethodenFuerPCase\\src\\Test\\adminList.txt",false)));
+                        BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(testURL.toString(),false)));
                 
                         overWrite.write(userData.toString());
                         overWrite.close();

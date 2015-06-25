@@ -47,11 +47,14 @@ public class InputChecker extends ReadTxtFile{
 	}
     public boolean userNameSame(String usernameString) throws IOException{
       boolean bool1=false;
-      URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
+    /*  URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
             }
-                File file =  new File(testURL.toString());
+           */ 
+            
+            String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "adminList.txt";
+                File file =  new File(absoluteFilePath);
       BufferedReader brUsernameSame = new BufferedReader(new FileReader(file));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();
@@ -78,11 +81,8 @@ public class InputChecker extends ReadTxtFile{
     }
     public boolean usernamePasswordCheckerSame(String username,String password) throws IOException{
         boolean bool1=false;
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
+ String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "adminList.txt";
+                File file =  new File(absoluteFilePath);
       BufferedReader brUsernameSame = new BufferedReader(new FileReader(file));
       try{
           StringBuilder sbUsernameSame = new StringBuilder();

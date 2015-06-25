@@ -7,7 +7,9 @@ package Screens;
 
 import Methods.FileToUser;
 import Methods.InputChecker;
+import Methods.ReadTxtFile;
 import Methods.WriteInTxtFile;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.attribute.FileTime;
 import java.util.logging.Level;
@@ -157,13 +159,17 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsernameRegisterActionPerformed
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
+        ReadTxtFile readFAQ = new ReadTxtFile();
+        try {
+            readFAQ.FileReaderFAQ();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButtonHelpMouseClicked
 
     private void jButtonCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelMouseClicked
-        // TODO add your handling code here:
-        dispose();
-        
+        dispose();        
     }//GEN-LAST:event_jButtonCancelMouseClicked
 
     private void jButtonRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegisterMouseClicked

@@ -13,24 +13,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
-import java.nio.file.Path;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Simon
  */
-public class FileToUser {
+public class FileToUser{
     
     int UserCount=1;
     int EintraegeCount=1;
     int UseriD=1;
     String activeUser;
     
-    
-    
 
-    public void setActiveUser(String activeUser){
-        this.activeUser=activeUser;
+    public String setActiveUser(String activeUser){
+        return this.activeUser=activeUser;
     }
     public String getActiveUser(){
         return this.activeUser;
@@ -53,11 +51,9 @@ public class FileToUser {
     }    
     
     public int getAllUserCount() throws FileNotFoundException, IOException{
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
+        String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "adminList.txt";
+        File file = new File(absoluteFilePath);
+
         BufferedReader brTest = new BufferedReader(new FileReader(file));
       int lineCount = 1;
         String line = brTest.readLine();
@@ -69,11 +65,8 @@ public class FileToUser {
                 return UserCount;
     }
     public int getEintraegeCount(String username) throws FileNotFoundException, IOException{
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+username+".txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
+        String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "user_"+username+".txt";
+        File file = new File(absoluteFilePath);
         BufferedReader brTest = new BufferedReader(new FileReader(file));
         int lineCount = 1;
         String line = brTest.readLine();
@@ -86,13 +79,25 @@ public class FileToUser {
     }
     
     public void newFileForUser(String username) throws FileNotFoundException, IOException{
-            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+username+".txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
-        Writer userWriter = new FileWriter(file);
-        }   
+         try{   
+        String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "user_"+username+".txt";
+        File file = new File(absoluteFilePath);
+ 
+		if (file.createNewFile()) {
+                    JOptionPane.showMessageDialog(null,"Sie haben sich erfolgreich Registriert!");
+                } else {
+			JOptionPane.showMessageDialog(null,"Die Registrierung ist fehlgeschlagen!");
+		}
+ 
+	  } catch (IOException e) {
+              System.out.println("newFileToUser error");
+	  }   
+    }
+
+
+
+    
+
     
     
     

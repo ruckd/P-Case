@@ -6,11 +6,13 @@
 package Screens;
 
 import Methods.ReadTxtFile;
+import java.io.FileNotFoundException;
 import p_case.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -52,6 +54,7 @@ public class ListScreen extends javax.swing.JFrame {
         jLabelPasswort = new javax.swing.JLabel();
         jLabelDomain = new javax.swing.JLabel();
         jButtonHelp = new javax.swing.JButton();
+        jToggleButtonTest = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,6 +123,23 @@ public class ListScreen extends javax.swing.JFrame {
         jLabelDomain.setText("Domain");
 
         jButtonHelp.setText("?");
+        jButtonHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonHelpMouseClicked(evt);
+            }
+        });
+
+        jToggleButtonTest.setText("TestToggle");
+        jToggleButtonTest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButtonTestMouseClicked(evt);
+            }
+        });
+        jToggleButtonTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonTestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,6 +161,8 @@ public class ListScreen extends javax.swing.JFrame {
                                     .addComponent(jLabelNummer)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jButtonTest)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jToggleButtonTest)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -180,7 +202,9 @@ public class ListScreen extends javax.swing.JFrame {
                             .addComponent(jButtonNewListing)
                             .addComponent(jButtonChange_Delete))
                         .addGap(357, 357, 357)
-                        .addComponent(jButtonTest))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonTest)
+                            .addComponent(jToggleButtonTest)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -201,7 +225,7 @@ public class ListScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButtonChange_DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonChange_DeleteMouseClicked
         
         new Edit().setVisible(true);
@@ -230,16 +254,43 @@ public class ListScreen extends javax.swing.JFrame {
             Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
-      /*  
-        ReadTxtFile rtxtf = new ReadTxtFile();
+               
+    }//GEN-LAST:event_jButtonTestMouseClicked
+
+    private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
+                ReadTxtFile readFAQ = new ReadTxtFile();
         try {
-            rtxtf.FileReaderUser(jTextAreaTabelle);
+            readFAQ.FileReaderFAQ();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButtonHelpMouseClicked
+
+    private void jToggleButtonTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButtonTestMouseClicked
+
+        
+ 
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButtonTestMouseClicked
+
+    private void jToggleButtonTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonTestActionPerformed
+        
+        if(jToggleButtonTest.isSelected()==true){
+        ReadTxtFile abc = new ReadTxtFile();
+        try {
+            abc.FileReaderAdmin(jTextAreaNummer,jTextAreaBenutzername,jTextAreaPasswort);
         } catch (IOException ex) {
             Logger.getLogger(ListScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-               */
-    }//GEN-LAST:event_jButtonTestMouseClicked
+    }else{
+            jTextAreaBenutzername.setText(null);
+            jTextAreaDomain.setText(null);
+            jTextAreaNummer.setText(null);
+            jTextAreaPasswort.setText(null);
+        }
+        
+    }//GEN-LAST:event_jToggleButtonTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,5 +352,6 @@ public class ListScreen extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaDomain;
     private javax.swing.JTextArea jTextAreaNummer;
     private javax.swing.JTextArea jTextAreaPasswort;
+    private javax.swing.JToggleButton jToggleButtonTest;
     // End of variables declaration//GEN-END:variables
 }

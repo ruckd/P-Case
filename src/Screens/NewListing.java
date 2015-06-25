@@ -5,15 +5,20 @@
  */
 package Screens;
 
+import Methods.FileToUser;
+import Methods.ReadTxtFile;
 import p_case.*;
 import Methods.WriteInTxtFile;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Simon
  */
-public class NewListing extends javax.swing.JFrame {
+public class NewListing extends javax.swing.JFrame{
 
     /**
      * Creates new form NewListing
@@ -155,6 +160,12 @@ public class NewListing extends javax.swing.JFrame {
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
 
+                ReadTxtFile readFAQ = new ReadTxtFile();
+        try {
+            readFAQ.FileReaderFAQ();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButtonHelpMouseClicked
 
@@ -163,7 +174,6 @@ public class NewListing extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPasswdActionPerformed
 
     private void jButtonCancel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancel2MouseClicked
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButtonCancel2MouseClicked
 
@@ -171,14 +181,26 @@ public class NewListing extends javax.swing.JFrame {
         
         
         WriteInTxtFile userwrite = new WriteInTxtFile();
+        FileToUser fileToUser = new FileToUser();
+        
+        //aktiven user finden!
+        
+        String adminOderNicht = fileToUser.getActiveUser();
+        
+        
         userwrite.schreibenInUserList(jTextFieldDomain.getText() ,jTextFieldU_Name.getText(),jTextFieldPasswd.getText());
+        
+        if(adminOderNicht.equals("admin")){
+            userwrite.schreibenInAdminList(jTextFieldDomain.getText() ,jTextFieldU_Name.getText(),jTextFieldPasswd.getText());
+        }else{
+            userwrite.schreibenInUserList(jTextFieldDomain.getText() ,jTextFieldU_Name.getText(),jTextFieldPasswd.getText());
+        }
+        
         
         
     }//GEN-LAST:event_jButtonNewMouseClicked
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-        // TODO add your handling code here:
-        
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     /**

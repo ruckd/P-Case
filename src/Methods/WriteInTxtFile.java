@@ -7,13 +7,13 @@ package Methods;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.lang.reflect.Field;
 import java.net.URL;
 import javax.swing.JOptionPane;
-import javax.swing.text.DefaultStyledDocument;
 
 /**
  *
@@ -28,18 +28,25 @@ public class WriteInTxtFile{
     public void schreibenInUserList(String jTextFieldUsername,String jTextFieldPassword,String jTextFielddomain) {
        FileToUser ftu1=new FileToUser();
         try{
-            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+ftu1.getActiveUser()+".txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
+                    String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "user_hanswurst.txt";
+                File file = new File(absoluteFilePath);
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     //FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);
-                    FileWriter fileW = new FileWriter ("C:\\Users\\nt-user1\\Documents\\NetBeansProjects\\P-Case\\src\\resources\\user0.txt",true);
+                    FileWriter fileW = new FileWriter (absoluteFilePath,true);
                     //buffered writer, der schreibt.
-                    BufferedWriter b = new BufferedWriter (fileW);
+                    BufferedWriter b = new BufferedWriter (new OutputStreamWriter(new FileOutputStream(file,true)));
                     //Text der geschrieben werden soll
+                    
+                    
+                    //aktiven user finden und die einträgecount schreiben
+                    
                     
                     b.newLine();
                     b.write(ftu1.getEintraegeCount(ftu1.getActiveUser()));        
+                    
+                    
+                    
+                    
                     b.newLine();
                     b.write(jTextFieldUsername);
                     b.newLine();
@@ -51,11 +58,10 @@ public class WriteInTxtFile{
                     //schließen
                     b.close();
             //wenn datei nicht existiert wird sie hier erstellt
-                }else{
-                    
-                }
+
 
         }catch(IOException e){
+            System.out.println("123");
             System.err.println( "Konnte Datei nicht erstellen" );
         }
         finally {
@@ -72,15 +78,18 @@ public class WriteInTxtFile{
         InputChecker inputCheck = new InputChecker();
         try{
             
+             String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "adminList.txt";
+ 
+        File file = new File(absoluteFilePath);
             
-            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
             
+            if(file.exists()){
+                System.out.println("hallo");
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     FileWriter fileW = new FileWriter (file,true);
                     //buffered writer, der schreibt.
-                    BufferedWriter b = new BufferedWriter (fileW);
+                    BufferedWriter b = new BufferedWriter (new OutputStreamWriter(new FileOutputStream(file,true)));
+                
                     //Text der geschrieben werden soll
                     if(inputCheck.userNameSame(jTextFieldUsername)==true){
                         JOptionPane.showMessageDialog(null, "Dieser Username existiert bereits!");
@@ -90,7 +99,7 @@ public class WriteInTxtFile{
                         //checken ob passwort "unsicher" ist
                         if(inputCheck.passwordChecker(jPasswordFieldPassword)!=true){
                             JOptionPane.showMessageDialog(null, "Bitte benutzen Sie ein sicheres Passwort!");   
-                        }else{                                                       
+                        }else{
                             FileToUser ftu1=new FileToUser();
                             b.newLine();
                             b.write(""+ftu1.getAllUserCount());
@@ -127,29 +136,24 @@ public class WriteInTxtFile{
     //wieso das untere???
     
     public void schreibenInAdminListNoCheck(String iD,String username,String password) throws IOException{
-        Writer fw = null;
+        Writer fileWriter = null;
         try{       
             URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
             }
                 File file =  new File(testURL.toString());
-                
-                //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                 FileWriter fileW = new FileWriter (file,true);
-                //buffered writer, der schreibt.
                 BufferedWriter b = new BufferedWriter (fileW);
-                //Text der geschrieben werden soll
-                    b.write(iD + "\n" + username + "\n" + password + "\n"); 
-                    //schließen
+                    b.write(iD + "\n" + username + "\n" + password + "\n");
                     b.close();              
         }catch(IOException e){
             System.err.println( "Konnte Datei nicht erstellen" );
         }
         finally {
-           if(fw!=null)
+           if(fileWriter!=null)
             try{
-                fw.close(); 
+                fileWriter.close(); 
             } catch ( IOException e ) {
             }
         }
@@ -162,13 +166,9 @@ public class WriteInTxtFile{
                  File file =  new File(testURL.toString());
             }
                 File file =  new File(testURL.toString());
-                //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                 FileWriter fileW = new FileWriter (file,true);
-                //buffered writer, der schreibt.
                 BufferedWriter b = new BufferedWriter (fileW);
-                //Text der geschrieben werden soll
                     b.write(schreib); 
-                    //schließen
                     b.close();              
         }catch(IOException e){
             System.err.println( "Konnte Datei nicht erstellen" );

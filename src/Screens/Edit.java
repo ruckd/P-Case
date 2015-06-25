@@ -1,9 +1,11 @@
 package Screens;
 
 import Methods.EditAndDelete;
+import Methods.FileToUser;
 import Methods.ReadTxtFile;
 import p_case.*;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -187,6 +189,12 @@ public class Edit extends javax.swing.JFrame {
 
     private void jButtonHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonHelpMouseClicked
 
+                ReadTxtFile readFAQ = new ReadTxtFile();
+        try {
+            readFAQ.FileReaderFAQ();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
         
     }//GEN-LAST:event_jButtonHelpMouseClicked
@@ -200,26 +208,38 @@ public class Edit extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelMouseClicked
 
     private void jButtonDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDeleteMouseClicked
-        
-        
-        
-       
+
     }//GEN-LAST:event_jButtonDeleteMouseClicked
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
-       
-        
         dispose();
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         EditAndDelete editdelete= new EditAndDelete();
+        FileToUser fileToUser = new FileToUser();
         
+        
+        
+        //aktiver user finden!
+        String adminOderNicht = fileToUser.getActiveUser();
+        
+        
+        
+        
+        if(adminOderNicht.equals("admin")){
+           try {
+            editdelete.EditForAdmin(jTextFieldNumber.getText(), jTextFieldU_Name.getText(), jTextFieldPasswd.getText()); 
+        } catch (IOException ex) {
+            Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        }else{
         
         try {
             editdelete.EditForUser(jTextFieldNumber.getText(), jTextFieldU_Name.getText(), jTextFieldPasswd.getText(),jTextFieldDomain.getText()); 
         } catch (IOException ex) {
             Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
         
         dispose();
@@ -227,11 +247,23 @@ public class Edit extends javax.swing.JFrame {
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
        EditAndDelete editdelete= new EditAndDelete();
+       FileToUser fileToUser = new FileToUser();
+        String adminOderNicht = fileToUser.getActiveUser();
+        if(adminOderNicht.equals("admin")){
+       
         try {
             editdelete.DeleteForAdmin(jTextFieldNumber.getText());
         } catch (IOException ex) {
             Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }else{
+                        try {
+            editdelete.DeleteForUser(jTextFieldNumber.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                }
         
         dispose();
     }//GEN-LAST:event_jButtonDeleteActionPerformed

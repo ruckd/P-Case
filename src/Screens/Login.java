@@ -1,4 +1,5 @@
 package Screens;
+import Methods.FileToUser;
 import Methods.InputChecker;
 import Methods.ReadTxtFile;
 import Methods.WriteInTxtFile;
@@ -21,7 +22,6 @@ public class Login extends javax.swing.JFrame{
     public Login() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,14 +133,12 @@ public class Login extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonFAQMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFAQMouseClicked
-      ReadTxtFile abc = new ReadTxtFile();
+              ReadTxtFile readFAQ = new ReadTxtFile();
         try {
-            abc.FileReaderFAQ();
+            readFAQ.FileReaderFAQ();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //TXTReader reader = new TXTReader();
-      //  JOptionPane.showMessageDialog(null, reader.getFAQs());
     }//GEN-LAST:event_jButtonFAQMouseClicked
 
     private void jButtonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLoginMouseClicked
@@ -149,8 +147,12 @@ public class Login extends javax.swing.JFrame{
         InputChecker inputcheckerLogin = new InputChecker();
         try {
             if(inputcheckerLogin.usernamePasswordCheckerSame(jTextUser.getText(), jPasswordFieldPassword.getText())){
-            //neue datei erstellen
-                //to do !!!!auf user zuweisen!!!                
+                //to do !!!!Aktiven User bestimmen!
+                
+
+                /*
+                fileToUser.OpenFile(jTextUser.getText(), null, null, null, null);
+                */
                 new ListScreen().setVisible(true);
                 dispose();
             }else{
@@ -178,6 +180,7 @@ public class Login extends javax.swing.JFrame{
      */
     public static void main(String args[]) {
 
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

@@ -41,6 +41,8 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jButtonTest" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jToggleButtonTest" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jScrollPane6" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -94,7 +96,10 @@
                           <Component id="jButtonChange_Delete" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="357" max="-2" attributes="0"/>
-                      <Component id="jButtonTest" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButtonTest" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jToggleButtonTest" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -252,6 +257,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="?"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonHelpMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="jToggleButtonTest">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="TestToggle"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleButtonTestMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonTestActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

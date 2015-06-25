@@ -25,9 +25,6 @@ public class ReadTxtFile extends WriteInTxtFile{
         URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_"+username+".txt");
             if(testURL != null){
                  File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
-        
         BufferedReader brTest = new BufferedReader(new FileReader(file));
         try {
             
@@ -59,15 +56,16 @@ public class ReadTxtFile extends WriteInTxtFile{
     } finally {
         brTest.close();
     }
-}
+}else{
+                JOptionPane.showMessageDialog(null, "Dieser Eintrag existiert nicht und daher kann nicht aus ihm gelesen werden!");
+            }
+    }
     public void FileReaderAdmin(javax.swing.JTextArea jTextAreaNummer,javax.swing.JTextArea jTextAreaBenutzername,javax.swing.JTextArea jTextAreaPasswort) throws FileNotFoundException, IOException{
 
-        
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
+String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "adminList.txt";
+                File file = new File(absoluteFilePath);
+                if(file.exists()){
+            
         BufferedReader brTest = new BufferedReader(new FileReader(file));
         try {
             StringBuilder sb1 = new StringBuilder();
@@ -96,17 +94,15 @@ public class ReadTxtFile extends WriteInTxtFile{
     } finally {
         brTest.close();
     }
-}
+}else{
+                JOptionPane.showMessageDialog(null, "Die Adminliste existiert nicht und kann daher nicht bearbeitet werden!");
+            }
+    }
     public void FileReaderFAQ() throws FileNotFoundException{
         
-        URL testURL = ClassLoader.getSystemResource("resources/FAQ.txt");
+        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "FAQ.txt");
             if(testURL != null){
                 File file =  new File(testURL.toString()); 
-            }
-                 
-                 
-            
-             File file =  new File(testURL.toString());
                 
                 BufferedReader in = new BufferedReader(new FileReader(file));
                 
@@ -122,7 +118,11 @@ public class ReadTxtFile extends WriteInTxtFile{
             }
         }
         JOptionPane.showMessageDialog(null, faqs);
+    }else{
+                JOptionPane.showMessageDialog(null, "Die FAQ Datei exisitert nicht und kann daher nicht gelesen werden!");
+            }
     }
+            
     
 }
 
