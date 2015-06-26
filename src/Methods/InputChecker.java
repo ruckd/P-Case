@@ -1,8 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Simon
  */
+
+/**
+ *@DOKUMENTATION
+ *
+ * passwordChecker:
+ * Prüft Passwort auf mindestens:
+ *       acht Zeichen,
+ *       zwei Ziffern,
+ *       einen Groß- und einen Kleinbuchstaben 
+ *       ein Sonderzeichen
+ * sonst Fehlermeldung
+ * 
+ * userNameSame:
+ * prüft in Admin Liste ob User Name schon existiert
+ * sonst Fehlermeldung
+ * 
+ * usernamePasswordCheckerSame:
+ * prüft ob User Name, Passwort kombination existiert
+ * sonst Fehlermeldung
+ * 
+ * 
+ * 
+ * 
+ */
+
+
 package Methods;
 
 import java.io.BufferedReader;
@@ -12,10 +37,7 @@ import java.io.IOException;
 import java.net.URL;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Simon
- */
+
 public class InputChecker extends ReadTxtFile{
     private String pwChecked;
     private String usernameChecked;

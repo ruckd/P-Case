@@ -1,7 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Simon
+ */
+
+/**
+ *@DOKUMENTATION
+ * 
+ * schreibenInUserList:
+ * Erstellt neuen BufferedWriter
+ * nimmt die 4 Eingaben schreibt sie an Liste unten dran
+ * sonst Fehlermeldung
+ * 
+ * schreibenInAdminList:
+ * Erstellt neuen BufferedWriter
+ * nimmt die 3 Eingaben schreibt sie an Liste unten dran
+ * sonst Fehlermeldung
+ * 
+ * 
+ * 
  */
 package Methods;
 
@@ -15,10 +30,7 @@ import java.io.Writer;
 import java.net.URL;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Simon
- */
+
 public class WriteInTxtFile{
     
     
