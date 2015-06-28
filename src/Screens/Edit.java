@@ -2,6 +2,7 @@ package Screens;
 
 import Methods.EditAndDelete;
 import Methods.FileToUser;
+import Methods.InputChecker;
 import Methods.ReadTxtFile;
 import p_case.*;
 import java.io.BufferedWriter;
@@ -248,6 +249,8 @@ public class Edit extends javax.swing.JFrame {
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
        EditAndDelete editdelete= new EditAndDelete();
        FileToUser fileToUser = new FileToUser();
+        InputChecker ic = new InputChecker();
+        if(ic.isDigit(jTextFieldNumber.getText())){
         String adminOderNicht = fileToUser.getActiveUser();
         if(adminOderNicht.equals("admin")){
        
@@ -264,7 +267,9 @@ public class Edit extends javax.swing.JFrame {
                 }
                 
                 }
-        
+        }else{
+            JOptionPane.showMessageDialog(null, "Bitte geben sei eine Zahl ein!");
+        }
         dispose();
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 

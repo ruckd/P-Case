@@ -40,7 +40,7 @@ public class WriteInTxtFile{
     public void schreibenInUserList(String jTextFieldUsername,String jTextFieldPassword,String jTextFielddomain) {
        FileToUser ftu1=new FileToUser();
         try{
-                    String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "user_hanswurst.txt";
+                    String absoluteFilePath = System.getProperty("user.dir") + File.separator +"src"+File.separator+"resources" + File.separator+ "user_"+ftu1.getActiveUser()+".txt";
                 File file = new File(absoluteFilePath);
                     //neuer filewriter, (pfad der datei, true=wenn angehängt werden soll,false=wenn nicht angehängt sondern überschrieben
                     //FileWriter fileW = new FileWriter (path + path2 + "user" + countUser+".txt",true);

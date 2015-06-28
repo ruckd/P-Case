@@ -22,6 +22,9 @@
  * prüft ob User Name, Passwort kombination existiert
  * sonst Fehlermeldung
  * 
+ * isDigit:
+ * überprüft ob eingegeber String eine Zahl ist oder nicht
+ * 
  * 
  * 
  * 
@@ -34,7 +37,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
 import javax.swing.JOptionPane;
 
 
@@ -128,8 +130,15 @@ public class InputChecker extends ReadTxtFile{
       }
         return bool1;
     }
-    
-}
+    public boolean isDigit(String a){
+        
+        if(a.matches("[0-9]+"))
+	return true;
+else
+	return false;
+    }
+    }
+
     
     
 
