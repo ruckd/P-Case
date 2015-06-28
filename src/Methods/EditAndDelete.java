@@ -82,9 +82,8 @@ public class EditAndDelete {
 
     public void DeleteForUser(String iD) throws IOException {
         FileToUser ftu = new FileToUser();
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_" + ftu.getActiveUser() + ".txt");
-        if (testURL != null) {
-            File file = new File(testURL.toString());
+String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "user_" + ftu.getActiveUser() + ".txt";
+            File file = new File(absoluteFilePath);
             if (file.exists()) {
                 BufferedReader brTest = new BufferedReader(new FileReader(file));
 
@@ -117,15 +116,15 @@ public class EditAndDelete {
             } else {
                 JOptionPane.showMessageDialog(null, "Der Eintrag existiert nicht und kann daher nicht bearbeitet werden!");
             }
-        }
+        
 
     }
 
     public void EditForUser(String iD, String username, String password, String domain) throws FileNotFoundException, IOException {
         FileToUser ftu = new FileToUser();
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_" + ftu.getActiveUser() + ".txt");
-        if (testURL != null) {
-            File file = new File(testURL.toString());
+String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "user_" + ftu.getActiveUser() + ".txt";
+            File file = new File(absoluteFilePath);
+            if(file.exists()){
             BufferedReader brTest = new BufferedReader(new FileReader(file));
             ArrayList<String> userData = new ArrayList<String>();
 
@@ -139,7 +138,7 @@ public class EditAndDelete {
             userData.set(zuLoeschendeNummer + 2, password);
             userData.set(zuLoeschendeNummer + 3, domain);
 
-            BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(testURL.toString(), false)));
+            BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(absoluteFilePath, false)));
 
             overWrite.write(userData.toString());
             overWrite.close();
@@ -152,9 +151,9 @@ public class EditAndDelete {
 
     public void DeleteForAdmin(String iD) throws IOException {
 
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-        if (testURL != null) {
-            File file = new File(testURL.toString());
+        String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "adminList.txt";
+            File file = new File(absoluteFilePath);
+            if(file.exists()){
             BufferedReader brTest = new BufferedReader(new FileReader(file));
 
             ArrayList<String> userData = new ArrayList<String>();
@@ -191,14 +190,15 @@ public class EditAndDelete {
 
     public void EditForAdmin(String iD, String username, String password) throws FileNotFoundException, IOException {
 
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-        if (testURL != null) {
+        String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "adminList.txt";
+            File file = new File(absoluteFilePath);
+            if(file.exists()){
 
             if (iD.equals("0") ^ username.equals("admin")) {
                 JOptionPane.showMessageDialog(null, "Der Benutzername des Administrators admin kann nicht verändert werden!");
             } else {
-                File file = new File(testURL.toString());
-                BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(testURL.toString(), true)));
+                
+                BufferedWriter nooverWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(absoluteFilePath, true)));
                 BufferedReader brTest = new BufferedReader(new FileReader(file));
                 ArrayList<String> userData = new ArrayList<String>();
                 String line = brTest.readLine();
@@ -209,7 +209,7 @@ public class EditAndDelete {
                 int zuLoeschendeNummer = userData.indexOf(iD);
                 userData.set(zuLoeschendeNummer + 1, username);
                 userData.set(zuLoeschendeNummer + 2, password);
-                BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(testURL.toString(), false)));
+                BufferedWriter overWrite = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(absoluteFilePath, false)));
 
                 overWrite.write(userData.toString());
                 overWrite.close();

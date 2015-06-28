@@ -40,9 +40,9 @@ public class ReadTxtFile extends WriteInTxtFile {
 
     public void FileReaderUser(String username, javax.swing.JTextArea jTextAreaNummer, javax.swing.JTextArea jTextAreaBenutzername, javax.swing.JTextArea jTextAreaPasswort, javax.swing.JTextArea jTextAreaDomain) throws FileNotFoundException, IOException {
 
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "user_" + username + ".txt");
-        if (testURL != null) {
-            File file = new File(testURL.toString());
+String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "user_" + username + ".txt";
+            File file = new File(absoluteFilePath);
+            if(file.exists()){
             BufferedReader brTest = new BufferedReader(new FileReader(file));
             try {
 
@@ -119,9 +119,9 @@ public class ReadTxtFile extends WriteInTxtFile {
 
     public void FileReaderFAQ() throws FileNotFoundException {
 
-        URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "FAQ.txt");
-        if (testURL != null) {
-            File file = new File(testURL.toString());
+        String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "FAQ.txt";
+            File file = new File(absoluteFilePath);
+            if(file.exists()){
 
             BufferedReader in = new BufferedReader(new FileReader(file));
 

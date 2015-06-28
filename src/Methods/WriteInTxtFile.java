@@ -150,11 +150,8 @@ public class WriteInTxtFile{
     public void schreibenInAdminListNoCheck(String iD,String username,String password) throws IOException{
         Writer fileWriter = null;
         try{       
-            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
+String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "adminList.txt";
+            File file = new File(absoluteFilePath);
                 FileWriter fileW = new FileWriter (file,true);
                 BufferedWriter b = new BufferedWriter (fileW);
                     b.write(iD + "\n" + username + "\n" + password + "\n");
@@ -173,11 +170,8 @@ public class WriteInTxtFile{
     public void schreibenInAdminListNoCheck(String schreib){
         Writer fw = null;
         try{       
-            URL testURL = ClassLoader.getSystemResource("resources" + File.separator + "adminList.txt");
-            if(testURL != null){
-                 File file =  new File(testURL.toString());
-            }
-                File file =  new File(testURL.toString());
+String absoluteFilePath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "adminList.txt";
+            File file = new File(absoluteFilePath);
                 FileWriter fileW = new FileWriter (file,true);
                 BufferedWriter b = new BufferedWriter (fileW);
                     b.write(schreib); 
